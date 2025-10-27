@@ -10,7 +10,6 @@ body {
     margin: 40vh;
     display: grid;
     flex-wrap: wrap;
-    line-height: 0,5rem;
 }
 
 .sidebar {
