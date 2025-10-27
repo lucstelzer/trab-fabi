@@ -7,7 +7,8 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f2f5;
-    margin: 40vh;
+    margin-left: 40vh;
+    margin-top: 1rem;
     display: grid;
     flex-wrap: wrap;
 }
@@ -103,6 +104,77 @@ body {
         flex-wrap:nowrap;
     }
 }
+
+/* Container dos cards com grid responsivo */
 #info-section {
-   margin-left: 250px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Estilo base do card */
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid #eee;
+    max-width: fit-content;
+}
+
+/* Elementos internos do card */
+.card p {
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.card hr {
+    border: none;
+    height: 1px;
+    background: #eee;
+    margin: 12px 0;
+}
+
+.card .author {
+    font-size: 0.9rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card .action-link {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 8px 0;
+    display: inline-block;
+}
+
+
+/* Tamanhos diferentes de cards */
+.wide-box {
+    grid-column: span 2;
+}
+
+.narrow-box {
+    grid-column: span 1;
+}
+
+/* Ajuste responsivo */
+@media (max-width: 768px) {
+    #info-section {
+        gap: 16px;
+        padding: 15px;
+    }
+    
+    .wide-box {
+        grid-column: span 1; /* em mobile, todos os cards ocupam largura total */
+    }
 }
