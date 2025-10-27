@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Responsiva</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="dashboard_tecnico.css">
+</head>
+<body>
+
+    <button class="hamburger-btn" id="toggle-sidebar">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            Fortes ENG
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#"><i class="fa-solid fa-user"></i> Perfil</a></li>
+            <li><a href="#"><i class="fa-solid fa-check"></i> Check-in</a></li>
+            <li><a href="#"><i class="fa-solid fa-list-ul"></i> Lista de solicitações</a></li>
+            <li><a href="#"><i class="fa-solid fa-chart-bar"></i> Relatórios</a></li>
+            <li><a href="#"><i class="fa-solid fa-bell"></i> Notificações</a></li>
+            <li><a href="#"><i class="fa-solid fa-question-circle"></i> Perguntas</a></li>
+            <li><a href="#"><i class="fa-solid fa-cog"></i> Configurações</a></li>
+            <li><a href="#"><i class="fa-solid fa-sign-out-alt"></i> Deslogar</a></li>
+        </ul>
+    </nav>
+    <main class="content">
+               <header class="content-header">
+                  <i class="fa-solid fa-arrow-left nav-back-btn"></i>
+                 <h2 id="page-title">Bem vindo, Tecnico!</h2>
+                </header>
+            <section class="info-section">
+                    <div class="card info-box wide-box">
+                        <p>Parabéns, você está a **9.999** dias trabalhando duro! Continue assim!</p>
+                        <i class="fa-solid fa-circle red-dot"></i>
+                    </div>
+
+                    <div class="card info-box narrow-box">
+                        <p>Seu horário de trabalho é das **13 até as 19**.</p>
+                    </div>
+
+                    <div class="card info-box">
+                        <p>Próxima folga está prevista para daqui a **3.000** anos, continue a trabalhar duro até lá :)</p>
+                    </div>
+
+                    <div class="card company-news-card news-1">
+                        <h3>Notícias da empresa</h3>
+                        <p>Conseguimos mais de 1 bilhão em lucro, em comemoração todos ganharão um bombom.</p>
+                        <p>Trabalhem mais que logo logo comprarei a minha nova BMW.</p>
+                        <p class="author">Abraços, Chefe</p>
+                    </div>
+
+                    <div class="card company-news-card news-2">
+                        <p>Confraternização no dia **20/99/2099**, se quiser participar coloque seu nome na planilha, obrigado.</p>
+                        <a href="#" class="action-link" data-action="planilha-confraternizacao">Planilha confraternização</a>
+                    </div>
+                </div>
+            </section>
+    <script src="dashboard_tecnico.js"></script>
+</body>
+</html>

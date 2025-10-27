@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortes ENG - Gestão de Funcionários</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-theme">
+    <div id="login-page" class="page active">
+        <div class="login-container">
+            <i class="fa-solid fa-user-circle login-icon"></i>
+            <h2>Acesso do Funcionário</h2>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <div class="login-options">
+                    <label>
+                        <input type="checkbox" id="remember-me"> Lembre de mim
+                    </label>
+                    <a href="#" class="forgot-password">Esqueceu a Senha?</a>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+    <div id="app-container" class="app-container hidden">
+        <header class="app-header">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-arrow-left nav-back-btn"></i>
+                <a href="#" class="logo" data-page="dashboard">Fortes ENG</a>
+            </div>
+            <div class="search-bar-mobile">
+                <input type="text" placeholder="Pesquisar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <nav class="main-nav">
+                <a href="#" class="nav-item" data-page="profile">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Perfil</span>
+                </a>
+                <a href="#" class="nav-item" data-page="checkin">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span>Check-in</span>
+                </a>
+                <a href="#" class="nav-item" data-page="requests">
+                    <i class="fa-solid fa-list-ul"></i>
+                    <span>Lista de solicitações</span>
+                </a>
+                <a href="#" class="nav-item" data-page="reports">
+                    <i class="fa-solid fa-file-alt"></i>
+                    <span>Relatórios</span>
+                </a>
+                <a href="#" class="nav-item" data-page="notifications">
+                    <i class="fa-solid fa-bell"></i>
+                    <span>Notificações</span>
+                </a>
+                <a href="#" class="nav-item" data-page="faq">
+                    <i class="fa-solid fa-question-circle"></i>
+                    <span>Perguntas</span>
+                </a>
+                <a href="#" class="nav-item" data-page="settings">
+                    <i class="fa-solid fa-cog"></i>
+                    <span>Configurações</span>
+                </a>
+            </nav>
+            <a href="#" class="nav-item logout" id="logout-btn">
+                <i class="fa-solid fa-sign-out-alt"></i>
+                <span>Deslogar</span>
+            </a>
+        </aside>
+        <main class="content">
+            <header class="content-header">
+                <i class="fa-solid fa-arrow-left nav-back-btn"></i>
+                <h2 id="page-title">Bem vindo, Tecnico!</h2>
+            </header>
+            <section id="dashboard-page" class="page active">
+                <div class="dashboard-grid">
+                    <div class="card calendar-widget">
+                        <div class="calendar-header">
+                            <button id="prev-month"><i class="fa-solid fa-angle-left"></i></button>
+                            <span id="current-month">OCTOBER 2025</span>
+                            <button id="next-month"><i class="fa-solid fa-angle-right"></i></button>
+                        </div>
+                        <div class="calendar-body">
+                            <table>
+                                <thead>
+                                    <tr><th>D</th><th>S</th><th>T</th><th>Q</th><th>Q</th><th>S</th><th>S</th></tr>
+                                </thead>
+                                <tbody id="calendar-days">
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card info-box wide-box">
+                        <p>Parabéns, você está a **9.999** dias trabalhando duro! Continue assim!</p>
+                        <i class="fa-solid fa-circle red-dot"></i>
+                    </div>
+                    <div class="card info-box narrow-box">
+                        <p>Seu horário de trabalho é das **13 até as 19**.</p>
+                    </div>
+                    <div class="card info-box">
+                        <p>Próxima folga está prevista para daqui a **3.000** anos, continue a trabalhar duro até lá :)</p>
+                    </div>
+                    <div class="card company-news-card news-1">
+                        <h3>Notícias da empresa</h3>
+                        <p>Conseguimos mais de 1 bilhão em lucro, em comemoração todos ganharão um bombom.</p>
+                        <p>Trabalhem mais que logo logo comprarei a minha nova BMW.</p>
+                        <p class="author">Abraços, Chefe</p>
+                    </div>
+                    <div class="card company-news-card news-2">
+                        <p>Confraternização no dia **20/99/2099**, se quiser participar coloque seu nome na planilha, obrigado.</p>
+                        <a href="#" class="action-link" data-action="planilha-confraternizacao">Planilha confraternização</a>
+                    </div>
+                </div>
+            </section>
+            <section id="profile-page" class="page">
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <i class="fa-solid fa-user-circle profile-icon-lg"></i>
+                        <h1>Nome Completo</h1>
+                        <p class="cargo">Cargo</p>
+                    </div>
+                    
+                    <div class="profile-details card">
+                        <p><strong>Número de registro:</strong> 123456</p>
+                        <p><strong>Departamento / Setor:</strong> Manutenção</p>
+                        <p><strong>E-mail:</strong> email@corporativo.com</p>
+                        <p><strong>Telefone:</strong> (27) 12345-1234</p>
+                        <button class="btn-secondary" data-page="settings-edit">Editar</button>
+                        <p class="last-update">Última Atualização: 15/02/2025</p>
+                    </div>
+                </div>
+            </section>
+            <section id="checkin-page" class="page">
+                <div class="checkin-form-grid">
+                    <div class="card checkin-inputs">
+                        <h3>Registro de Ponto</h3>
+                        <div class="input-group">
+                            <label>Nome</label>
+                            <input type="text" value="Tecnico" disabled>
+                        </div>
+                        <div class="input-group half-width">
+                            <label>Data e Hora</label>
+                            <input type="text" id="current-datetime" disabled value="09/10/2025 08:00">
+                        </div>
+                        <div class="input-group">
+                            <label>Local de trabalho ou setor</label>
+                            <input type="text" placeholder="Ex: Escritório central">
+                        </div>
+                        <div class="input-group">
+                            <label>Tipo de Atividade</label>
+                            <input type="text" placeholder="Ex: Manutenção predial">
+                        </div>
+                        <div class="input-group">
+                            <label>Observações</label>
+                            <textarea placeholder="Observações sobre o check-in"></textarea>
+                        </div>
+                        <button class="btn-primary btn-lg" id="register-checkin-btn">Registrar Check-in</button>
+                    </div>
+                    <div class="card checkin-history">
+                        <h3>Histórico de Check-in</h3>
+                        <table>
+                            <thead>
+                                <tr><th>Data</th><th>Hora</th><th>Setor</th><th>Status</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>12/04/2024</td><td>08:00</td><td>Manutenção</td><td><span class="status-badge approved">Aprovado</span></td></tr>
+                                <tr><td>12/04/2024</td><td>10:00</td><td>Controle</td><td><span class="status-badge approved">Aprovado</span></td></tr>
+                                <tr><td>12/04/2024</td><td>13:00</td><td>Logística</td><td><span class="status-badge approved">Aprovado</span></td></tr>
+                                <tr><td>12/04/2024</td><td>15:00</td><td>Logística</td><td><span class="status-badge approved">Aprovado</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section> 
+            <section id="requests-page" class="page">
+                <div class="card table-container">
+                    <h3>Tarefas e Solicitações</h3>
+                    <table>
+                        <thead>
+                            <tr><th>Data</th><th>Projeto/Tarefa</th><th>Quantidade de horas</th><th>Status</th><th>Ação</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr class="completed">
+                                <td>29/09/2025</td><td>Manutenção predial</td><td>2hrs</td><td><span class="status-badge completed">Concluída</span></td><td></td>
+                            </tr>
+                            <tr class="approved">
+                                <td>10/10/2025</td><td>Vazamento no box</td><td>1hr</td><td><span class="status-badge approved">Aprovada</span></td><td><a href="#" class="action-link complete-task">Clique para concluir</a></td>
+                            </tr>
+                            <tr class="rejected">
+                                <td>12/10/2025</td><td>Reunião de planejamento</td><td>3hrs</td><td><span class="status-badge rejected">Reprovado</span></td><td></td>
+                            </tr>
+                            <tr class="pending" data-task-id="4">
+                                <td>16/10/2025</td><td>Chuveiro quebrado</td><td>3hrs</td><td><span class="status-badge pending">Pendente</span></td><td><a href="#" class="action-link complete-task">Clique para concluir</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="table-footer">
+                        <div class="total-pending">
+                            <strong>Total de horas pendentes:</strong> <span id="total-pending-hours">4hrs</span>
+                        </div>
+                        <a href="#" class="action-link">Clique aqui para ver mais</a>
+                    </div>
+                </div>
+            </section>
+            <section id="reports-page" class="page">
+                <div class="reports-header">
+                    <span class="date-display">10/10/2025</span>
+                    <i class="fa-solid fa-calendar-alt report-calendar-icon"></i>
+                </div>
+                <div class="card chart-container">
+                    <h3>Relatório da semana anterior</h3>
+                    <div class="chart-simulacao">
+                        <div class="bar-group">
+                            <div class="bar-label">Seg</div>
+                            <div class="bar worked" style="width: 80%;"></div>
+                            <div class="bar extra" style="width: 10%;"></div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-label">Ter</div>
+                            <div class="bar worked" style="width: 70%;"></div>
+                            <div class="bar extra" style="width: 25%;"></div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-label">Qua</div>
+                            <div class="bar worked" style="width: 90%;"></div>
+                            <div class="bar extra" style="width: 5%;"></div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-label">Qui</div>
+                            <div class="bar worked" style="width: 60%;"></div>
+                            <div class="bar extra" style="width: 30%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="report-footer-grid">
+                    <div class="card legend-box">
+                        <h3>Legenda</h3>
+                        <div class="legend-item">
+                            <span class="legend-color worked-color"></span> Horas Trabalhadas
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color extra-color"></span> Horas Extras
+                        </div>
+                    </div>
+                    <div class="card request-box">
+                        <p>Desejo solicitar mais horas extras? clique <a href="#" class="action-link">aqui</a></p>
+                    </div>
+                </div>
+            </section>
+            <section id="notifications-page" class="page">
+                <div class="notification-grid">
+                    <div class="notification-list-area">
+                        <div class="notification-controls">
+                            <div class="search-bar-small">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" placeholder="Pesquisar notificações">
+                            </div>
+                            <div class="filter-buttons">
+                                <span>Mostrar:</span>
+                                <button class="filter-btn active" data-filter="all">Todas</button>
+                                <button class="filter-btn" data-filter="read">Lidas</button>
+                                <button class="filter-btn" data-filter="unread">Não lidas</button>
+                            </div>
+                        </div>
+                        <div class="notification-list">
+                            <div class="notification-item unread" data-notification-id="1">
+                                <div class="icon-status"><i class="fa-solid fa-exclamation-circle"></i></div>
+                                <div class="notification-content">
+                                    <strong>Notificação sobre hora extra</strong>
+                                    <p>Sua solicitação #234 foi aprovado</p>
+                                </div>
+                                <span class="notification-time">10:30</span>
+                            </div>
+                            <div class="notification-item read" data-notification-id="2">
+                                <div class="icon-status"><i class="fa-solid fa-exclamation-circle"></i></div>
+                                <div class="notification-content">
+                                    <strong>Notificação sobre folga no próximo feriado</strong>
+                                    <p>Sua solicitação #234 foi aprovado</p>
+                                </div>
+                                <span class="notification-time">29/03</span>
+                            </div>
+                            <div class="notification-item unread" data-notification-id="3">
+                                <div class="icon-status"><i class="fa-solid fa-exclamation-circle"></i></div>
+                                <div class="notification-content">
+                                    <strong>Notificação sobre hora extra</strong>
+                                    <p>Você foi chamado para participar de uma hora extra</p>
+                                </div>
+                                <span class="notification-time">16/01</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card notification-calendar-area">
+                        <h3>Deseja procurar em um dia específico?</h3>
+                        <div class="calendar-icon-large"><i class="fa-solid fa-calendar-alt"></i></div>
+                        <div class="calendar-widget small-calendar">
+                            <div class="calendar-header">
+                                <button id="prev-month-notif"><i class="fa-solid fa-angle-left"></i></button>
+                                <span id="current-month-notif">OCTOBER 2025</span>
+                                <button id="next-month-notif"><i class="fa-solid fa-angle-right"></i></button>
+                            </div>
+                            <div class="calendar-body">
+                                <table>
+                                    <thead>
+                                        <tr><th>D</th><th>S</th><th>T</th><th>Q</th><th>Q</th><th>S</th><th>S</th></tr>
+                                    </thead>
+                                    <tbody id="calendar-days-notif">
+                                        </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="faq-page" class="page">
+                <div class="card faq-accordion-container">
+                    <h3>Dúvidas Frequentes</h3>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Onde consulto o meu saldo de horas extras?
+                            <i class="fa-solid fa-plus icon-state"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Acesse a aba **Relatórios**; nela, você tem acesso ao relatório que contém todas as horas extras trabalhadas e também qual o valor vai ser recebido por cada hora extra.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Como consigo ver as horas extras que tenho que fazer?
+                            <i class="fa-solid fa-plus icon-state"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>As horas extras são geralmente enviadas via notificação ou podem ser consultadas na **Lista de Solicitações** como tarefas pendentes.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item open">
+                        <button class="accordion-header">
+                            Onde consulto o meu saldo de horas extras? (Repetição do wireframe)
+                            <i class="fa-solid fa-minus icon-state"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Acesse a aba **Relatórios**; nessa aba, você tem acesso ao relatório que contém todas as horas extras trabalhadas e também qual o valor vai ser recebido por cada hora extra.</p>
+                        </div>
+                    </div>
+                    <div class="faq-footer">
+                        <p>Não achou o que deseja?</p>
+                        <button class="btn-secondary">Clique aqui</button>
+                    </div>
+                </div>
+            </section>
+            <section id="settings-page" class="page">
+                <div class="settings-grid">
+                    <div class="card settings-section preferences-section">
+                        <h3>Preferências</h3>
+                        <div class="setting-item">
+                            <label for="dark-mode-toggle">Modo escuro</label>
+                            <label class="switch">
+                                <input type="checkbox" id="dark-mode-toggle">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label for="email-notification-toggle">Receber notificação por e-mail</label>
+                            <label class="switch">
+                                <input type="checkbox" id="email-notification-toggle" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label for="language-select">Idioma</label>
+                            <select id="language-select">
+                                <option value="pt-BR">Português</option>
+                                <option value="en-US">English</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card settings-section security-section">
+                        <h3>Segurança</h3>
+                        <form id="change-password-form">
+                            <div class="input-group">
+                                <label for="current-password">Senha atual</label>
+                                <input type="password" id="current-password" placeholder="********">
+                            </div>
+                            <div class="input-group">
+                                <label for="new-password">Nova senha</label>
+                                <input type="password" id="new-password">
+                            </div>
+                            <div class="input-group">
+                                <label for="confirm-password">Confirmar nova senha</label>
+                                <input type="password" id="confirm-password">
+                            </div>
+                            <button type="submit" class="btn-primary">Alterar senha</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <section id="settings-edit-page" class="page">
+                <div class="settings-edit-container">
+                    <div class="profile-photo-edit">
+                        <i class="fa-solid fa-user-circle profile-icon-lg"></i>
+                        <button class="edit-photo-btn"><i class="fa-solid fa-camera"></i></button>
+                    </div>
+                    <div class="card settings-edit-form">
+                        <div class="input-group">
+                            <label for="edit-name">Nome Completo</label>
+                            <input type="text" id="edit-name" value="Tecnico da Silva">
+                        </div>
+                        <div class="input-group">
+                            <label for="edit-email">E-mail</label>
+                            <input type="email" id="edit-email" value="email@corporativo.com">
+                        </div>
+                        <button class="btn-primary" id="save-profile-btn">Salvar Perfil</button>
+                        <button class="btn-secondary" data-page="profile">Cancelar</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div id="custom-modal" class="custom-modal-overlay hidden">
+        <div class="custom-modal">
+            <h3 id="modal-title"></h3>
+            <p id="modal-message"></p>
+            <div class="modal-actions">
+                <button id="modal-cancel-btn" class="btn-secondary hidden">Cancelar</button>
+                <button id="modal-confirm-btn" class="btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
