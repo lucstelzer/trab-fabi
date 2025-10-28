@@ -12,7 +12,7 @@ body {
     top: 0;
     left: 0;
     height: 100vh;
-    width: 250px; /* Note que seu body tem margem de 20rem (320px), mas a sidebar 250px. Mantive 250px como no seu código. */
+    width: 250px; 
     background-color: #ffffff;
     border-right: 1px solid #ddd;
     padding: 20px;
@@ -29,7 +29,6 @@ body {
 
 .sidebar-menu {
     list-style: none;
-    /* Adicionei padding: 0; para garantir o reset */
     padding: 0; 
 }
 
@@ -46,9 +45,7 @@ body {
     border-radius: 8px;
     transition: background-color 0.2s;
 }
-.action-link {
-    color: blue !important;
-}
+
 .sidebar-menu a i {
     margin-right: 12px;
     width: 20px;
@@ -58,16 +55,10 @@ body {
     background-color: #f0f0f0;
 }
 
-/* --- ATENÇÃO --- */
-/* Você não me enviou o .main-content no último código, 
-   mas ele é ESSENCIAL. Estou adicionando ele de volta 
-   baseado no seu código anterior. */
 .main-content {
-    /* Esta margem deve ser IGUAL à do body para alinhar */
     margin-left: 20rem; 
     padding: 30px;
     transition: margin-left 0.3s ease-in-out;
-    /* Adicione um padding-bottom para não ser coberto pelas notícias */
     padding-bottom: 250px; 
 }
 
@@ -82,75 +73,55 @@ body {
     padding: 10px 12px;
     font-size: 1.2rem;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 1001; 
 }
 
-/* Elementos internos do card */
-/* Você tinha ".card p", mas seus cards de notícia são ".Noticias_da_empresa .card p" 
-   e seus avisos são ".card_avisos p". 
-   Vou criar uma regra genérica para <p> dentro de cards */
 .card p, .card_avisos p {
     color: #444;
     line-height: 1.5;
     margin-bottom: 12px;
 }
 
-/* ----- BLOCO CORRIGIDO ----- */
-/* Noticias_da_empresa: fixa na parte inferior da tela, ao lado da sidebar */
 .Noticias_da_empresa {
     position: fixed;
-    
-    /* --- CORREÇÃO 1: Alinhado com a margem do <body> --- */
     left: 20rem; 
-    
     right: 0;
     bottom: 0;
-
-    /* --- CORREÇÃO 2: Atrás da sidebar (z-index: 1000) --- */
     z-index: 999;
-
     display: flex;
     flex-wrap: wrap; 
     gap: 20px;
-
     align-items: center;
-    padding: 10px; /* Adicionei um leve padding para não colar na borda */
+    padding: 10px;
     border: none;
     background-color: transparent;
     box-shadow: none;
-
-    overflow-x: auto; /* mantém rolagem se houver muitos cards */
+    overflow-x: auto;
 }
 
-/* Estilo dos cards dentro da seção de notícias */
 .Noticias_da_empresa .card {
     flex-basis: 300px;
     flex-grow: 1;
     flex-shrink: 1;
-
     min-height: 180px;
     padding: 16px;
     margin: 0;
     border-radius: 8px;
-    /* A cor #858585 estava no seu código anterior */
     background-color: #858585; 
     transition: transform 0.2s ease;
-    
-    /* Adicionado para o texto dentro dos cards ficar legível */
     color: white; 
 }
 
-/* Adicionando cor branca ao link também */
 .Noticias_da_empresa .card a {
     color: #f0f0f0;
 }
 
-
 .Noticias_da_empresa .card:hover {
     transform: translateY(-5px);
 }
-
-/* ----- RESPONSIVIDADE ----- */
+.action-link {
+    color: blue !important;
+}
 
 @media (max-width: 768px) {
     .hamburger-btn {
@@ -161,32 +132,26 @@ body {
         transform: translateX(-100%);
     }
     
-    /* Você tinha .main-content aqui, mas ele não existe no seu HTML. 
-       A regra deve ser para o <body> */
     body {
-        margin: 5rem 1rem 1rem 1rem; /* Margem superior, laterais, inferior */
+        margin: 5rem 1rem 1rem 1rem;
         display: flex;
-        flex-wrap: nowrap; /* Isso pode ser problemático, mas mantive */
+        flex-wrap: nowrap;
     }
 
     .sidebar.open {
         transform: translateX(0);
     }
 
-    /* Você não tinha a regra para o .main-content em mobile. 
-       Estou adicionando de volta. */
     .main-content {
         margin-left: 0;
-        padding: 70px 20px 250px 20px; /* Topo(hambúrguer), Lados, Fundo(notícias) */
+        padding: 70px 20px 250px 20px; 
     }
 
-    /* Ajuste responsivo das Notícias */
     .Noticias_da_empresa {
-        left: 0; /* ocupa toda a largura em mobile */
+        left: 0; 
         padding: 12px;
         gap: 12px;
-        /* Garante que fique acima do conteúdo que rola */
-        z-index: 1000; 
+        z-index: 999; 
     }
 
     .Noticias_da_empresa .card {
