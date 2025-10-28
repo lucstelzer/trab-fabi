@@ -1,9 +1,3 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f2f5;
@@ -104,69 +98,12 @@ body {
         flex-wrap:nowrap;
     }
 }
-
-/* Container dos cards com grid responsivo */
-#info-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-    padding: 20px;
-    margin: 0;
-}
-
-/* Estilo base do card */
-.card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    border: 1px solid #eee;
-    max-width: fit-content;
-}
-
 /* Elementos internos do card */
 .card p {
     color: #444;
     line-height: 1.5;
     margin-bottom: 12px;
 }
-
-.card hr {
-    border: none;
-    height: 1px;
-    background: #eee;
-    margin: 12px 0;
-}
-
-.card .author {
-    font-size: 0.9rem;
-    color: #666;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.card .action-link {
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 8px 0;
-    display: inline-block;
-}
-
-
-/* Tamanhos diferentes de cards */
-.wide-box {
-    grid-column: span 2;
-}
-
-.narrow-box {
-    grid-column: span 1;
-}
-
 /* Ajuste responsivo */
 @media (max-width: 768px) {
     #info-section {
@@ -176,5 +113,49 @@ body {
     
     .wide-box {
         grid-column: span 1; /* em mobile, todos os cards ocupam largura total */
+    }
+}
+
+/* Noticias_da_empresa: fixa na parte inferior da tela, ao lado da sidebar */
+.Noticias_da_empresa {
+    position: fixed;
+    left: 250px;               /* alinha com a largura da sidebar */
+    right: 0;
+    bottom: 0;
+    display: flex;
+    gap: 1rem;                 /* espaçamento entre cards */
+    align-items: center;
+    padding: 20px;
+    background: #fff;
+    z-index: 1000;
+    overflow-x: auto;          /* permite rolagem se houver muitos cards */
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
+}
+
+/* Estilo dos cards dentro da seção de notícias */
+.Noticias_da_empresa .card {
+    flex: 0 0 300px;          /* largura fixa de cada card */
+    min-height: 180px;        /* altura mínima */
+    padding: 16px;
+    margin: 0;
+    border-radius: 8px;
+    background-color: #858585;
+    color: #fff;
+    transition: transform 0.2s ease;
+}
+
+.Noticias_da_empresa .card:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .Noticias_da_empresa {
+        left: 0;              /* ocupa toda largura em mobile */
+        padding: 12px;
+    }
+    
+    .Noticias_da_empresa .card {
+        flex: 0 0 260px;      /* cards um pouco menores em mobile */
     }
 }
