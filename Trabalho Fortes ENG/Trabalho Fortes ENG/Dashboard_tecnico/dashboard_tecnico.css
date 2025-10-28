@@ -241,11 +241,13 @@ body {
 @media (min-width: 900px) {
     .Noticias_da_empresa .card {
         flex-basis: 320px;
+        min-height: 220px;
     }
 }
 @media (min-width: 1200px) {
     .Noticias_da_empresa .card {
         flex-basis: 350px;
+        min-height: 250px;
     }
 }
 /* Fim do CSS do Dashboard Técnico */       
