@@ -1,0 +1,122 @@
+:root {
+    --color-primary: #0d6efd;
+    --color-surface: #ffffff;
+    --color-background: #f8f9fa;
+    --color-text: #212529;
+    --color-muted: #6c757d;
+    --shadow-sm: 0 2px 8px rgba(33,37,41,0.05);
+    --radius: 12px;
+    --transition: 0.2s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.card {
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 2rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card h3 {
+    color: var(--color-text);
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--color-background);
+}
+
+.faq-item {
+    background: linear-gradient(to right, var(--color-surface), #fafbfc);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: calc(var(--radius) - 4px);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    transition: transform var(--transition), box-shadow var(--transition);
+    cursor: pointer;
+}
+
+.faq-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.faq-item h4 {
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.faq-item h4::after {
+    content: '+';
+    font-size: 1.2rem;
+    color: var(--color-muted);
+    transition: transform var(--transition);
+}
+
+.faq-item.active h4::after {
+    transform: rotate(45deg);
+}
+
+.faq-item p {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.faq-item.active p {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body { padding: 1rem; }
+    .card { padding: 1.5rem; }
+    .card h3 { font-size: 1.5rem; }
+    .faq-item { padding: 1rem; }
+}
+
+/* Dark mode - será ativado se o sistema estiver em modo escuro */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-surface: #212529;
+        --color-background: #111315;
+        --color-text: #e9ecef;
+        --color-muted: #adb5bd;
+        --shadow-sm: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    
+    .faq-item {
+        background: linear-gradient(to right, var(--color-surface), #1a1d20);
+        border-color: rgba(255,255,255,0.05);
+    }
+}

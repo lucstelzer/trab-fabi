@@ -28,41 +28,52 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Sidebar (kept simple and consistent with existing markup) */
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
-    width: var(--sidebar-width);
-    background: var(--color-surface);
-    border-right: 1px solid rgba(0,0,0,0.06);
+    width: 250px;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
     padding: 20px;
-    overflow: auto;
+    transition: transform 0.3s ease-in-out;
     z-index: 1000;
 }
 
-.sidebar .logo {
-    display: block;
-    max-width: 140px;
-    margin: 0 auto 8px auto;
-    border-radius: 6px;
-}
-
 .sidebar-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
     text-align: center;
-    margin-bottom: 18px;
 }
 
-.sidebar-menu { list-style: none; padding: 0; }
-.sidebar-menu li { margin-bottom: 8px; }
-.sidebar-menu a {
-    display: flex; align-items: center; gap: 10px;
-    padding: 10px 12px; color: var(--color-text); text-decoration: none;
-    border-radius: 8px; transition: background .15s ease;
+.sidebar-menu {
+    list-style: none;
 }
-.sidebar-menu a:hover { background: rgba(13,110,253,0.06); }
-.sidebar-menu a i { width: 18px; text-align: center; color: var(--color-muted); }
+
+.sidebar-menu li {
+    margin-bottom: 10px;
+}
+
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.sidebar-menu a i {
+    margin-right: 12px;
+    width: 20px;
+}
+
+.sidebar-menu a:hover {
+    background-color: #f0f0f0;
+}
 
 /* Hamburger for mobile */
 .hamburger-btn {
