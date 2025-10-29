@@ -1,0 +1,212 @@
+/* ================================= */
+/* O SEU ESQUELETO CSS      */
+/* ================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    overflow-y: scroll; 
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000; /* Prioridade alta */
+    overflow-y: auto; 
+}
+.sidebar-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+}
+.sidebar-menu {
+    list-style: none;
+}
+.sidebar-menu li {
+    margin-bottom: 10px;
+}
+.sidebar-menu li.separator {
+    height: 1px;
+    background-color: #eee;
+    margin: 15px 0;
+}
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 8px;
+    transition: background-color 0.2s, color 0.2s;
+    font-weight: 500;
+}
+.sidebar-menu a i {
+    margin-right: 12px;
+    width: 20px;
+    color: #555;
+}
+.sidebar-menu a:hover {
+    background-color: #e0e0e0;
+    color: #000;
+}
+.hamburger-btn {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 12px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1001; /* Prioridade mais alta (acima da sidebar) */
+}
+
+/* ================================= */
+/* CSS ADICIONADO PARA O CONTEÚDO  */
+/* ================================= */
+
+/* 1. Layout do Conteúdo Principal */
+.main-content {
+    margin-left: 250px; 
+    padding: 30px;
+    transition: margin-left 0.3s ease-in-out;
+    /* --- CORREÇÃO DE PRIORIDADE --- */
+    position: relative; 
+    z-index: 1; /* Prioridade baixa (atrás da sidebar) */
+}
+.main-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 30px;
+}
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* 2. Grid do Dashboard */
+.dashboard-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* 3. Estilo dos Widgets (Caixas Brancas) */
+.widget {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    flex: 1;
+}
+
+/* 4. Widgets Específicos */
+
+/* //
+// O CSS DO CALENDÁRIO FOI REMOVIDO DAQUI
+//
+*/
+
+/* --- Gráfico --- */
+.chart-widget {
+    flex-basis: 300px;
+    flex-grow: 2; 
+    display: flex;
+    flex-direction: column;
+    /* Adicionado para garantir uma altura mínima */
+    min-height: 250px; 
+}
+.chart-widget h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #333;
+}
+.pie-chart-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: auto;
+    flex-wrap: wrap; /* Para o caso de telas muito pequenas */
+}
+.pie-chart {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #28a745 0% 70%, 
+        #dc3545 70% 100%
+    );
+}
+.chart-legend .dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.chart-legend .approved { background-color: #28a745; }
+.chart-legend .reproved { background-color: #dc3545; }
+
+/* --- Notícias --- */
+.news-widgets {
+    flex-basis: 30%; 
+}
+.news-item h3 {
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #333;
+}
+.news-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* ================================= */
+/* RESPONSIVIDADE (SEU CÓDIGO)     */
+/* ================================= */
+
+@media (max-width: 992px) {
+    .dashboard-grid.news-widgets {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger-btn {
+        display: block;
+    }
+    .sidebar {
+        transform: translateX(-100%); 
+    }
+    .main-content {
+        margin-left: 0;
+        padding-top: 70px;
+    }
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    .dashboard-grid.top-widgets {
+        flex-direction: column;
+    }
+}
