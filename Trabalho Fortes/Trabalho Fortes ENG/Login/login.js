@@ -11,13 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
             username: "tecnico", 
             password: "123", 
             role: "tecnico",
-            redirectTo: "/Trabalho Fortes/Trabalho Fortes ENG/Dashboard_tecnico/dashboard_tecnico.html" 
+            redirectTo: "/Trabalho Fortes/Trabalho Fortes ENG/Tecnico/Dashboard_tecnico/dashboard_tecnico.html" 
         },
         { 
             username: "encarregado", 
             password: "456", 
             role: "encarregado",
-            redirectTo: "/Trabalho Fortes/Trabalho Fortes ENG/Dashboard_encarregado/dashboard_encarregado.html"
+            redirectTo: "/Trabalho Fortes/Trabalho Fortes ENG/Encarregado/Dashboard_encarregado/dashboard_encarregado.html"
         }
         // Adicione mais usuários aqui se precisar
     ];
