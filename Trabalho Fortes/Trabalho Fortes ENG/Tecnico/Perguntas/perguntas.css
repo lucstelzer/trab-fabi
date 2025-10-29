@@ -1,7 +1,7 @@
 :root {
     --color-primary: #0d6efd;
     --color-surface: #ffffff;
-    --color-background: #f8f9fa;
+    --color-background: #f0f2f5;
     --color-text: #212529;
     --color-muted: #6c757d;
     --shadow-sm: 0 2px 8px rgba(33,37,41,0.05);
@@ -16,17 +16,77 @@
 }
 
 body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background-color: var(--color-background);
-    color: var(--color-text);
-    line-height: 1.5;
+    font-family: Arial, sans-serif;
+    background-color: var(--color-background);  
     padding: 2rem;
-    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
-
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+.sidebar-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.sidebar-menu {
+    list-style: none;
+}
+.sidebar-menu li {
+    margin-bottom: 10px;
+}
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+.sidebar-menu a i {
+    margin-right: 12px;
+    width: 20px;
+}
+.sidebar-menu a:hover {
+    background-color: #f0f0f0;
+}
+.hamburger-btn {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 12px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1001;
+}
+@media (max-width: 768px) {
+    .hamburger-btn {
+        display: block;
+    }
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    .sidebar.open {
+        transform: translateX(0);
+    }
+}
 .card {
     background: var(--color-surface);
     border-radius: var(--radius);
@@ -46,7 +106,7 @@ body {
 }
 
 .faq-item {
-    background: linear-gradient(to right, var(--color-surface), #fafbfc);
+    background-color: #f0f2f5;
     border: 1px solid rgba(0,0,0,0.05);
     border-radius: calc(var(--radius) - 4px);
     padding: 1.25rem;
@@ -99,24 +159,9 @@ body {
 
 /* Responsividade */
 @media (max-width: 768px) {
-    body { padding: 1rem; }
+    body { padding: 5rem; }
     .card { padding: 1.5rem; }
     .card h3 { font-size: 1.5rem; }
     .faq-item { padding: 1rem; }
 }
 
-/* Dark mode - será ativado se o sistema estiver em modo escuro */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-surface: #212529;
-        --color-background: #111315;
-        --color-text: #e9ecef;
-        --color-muted: #adb5bd;
-        --shadow-sm: 0 2px 8px rgba(0,0,0,0.2);
-    }
-    
-    .faq-item {
-        background: linear-gradient(to right, var(--color-surface), #1a1d20);
-        border-color: rgba(255,255,255,0.05);
-    }
-}
