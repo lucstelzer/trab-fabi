@@ -11,20 +11,19 @@
     <button class="hamburger-btn" id="toggle-sidebar">
         <i class="fa-solid fa-bars"></i>
     </button>
-
     <nav class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <a href="/Trabalho Fortes/Trabalho Fortes ENG/Tecnico/Dashboard_tecnico/dashboard_tecnico.html">
+            <a href="">
                 <img src="/Trabalho Fortes/Fortes engenharia.jpeg" alt="Logo da Empresa" class="logo">
             </a>
         </div>
         <ul class="sidebar-menu">
-            <li><a href="#"><i class="fa-solid fa-user"></i> Perfil</a></li>
+            <li><a href="perfil.html"><i class="fa-solid fa-user"></i> Perfil</a></li>
             <li><a href="#"><i class="fa-solid fa-check"></i> Check-in</a></li>
             <li><a href="#"><i class="fa-solid fa-list-ul"></i> Lista de solicitações</a></li>
             <li><a href="#"><i class="fa-solid fa-chart-bar"></i> Relatórios</a></li>
             <li><a href="#"><i class="fa-solid fa-bell"></i> Notificações</a></li>
-            <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Tecnico/Perguntas/index.html"><i class="fa-solid fa-question-circle"></i> Perguntas</a></li>
+            <li><a href="#"><i class="fa-solid fa-question-circle"></i> Perguntas</a></li>
             <li><a href="#"><i class="fa-solid fa-cog"></i> Configurações</a></li>
             <li><a href="#"><i class="fa-solid fa-sign-out-alt"></i>Deslogar</a></li>
         </ul>
@@ -37,18 +36,19 @@
         <div class="profile-container">
             <div class="profile-card">
                 <img src="/Trabalho Fortes/icone perfil.jpg" alt="Avatar do Técnico" class="profile-avatar">
-                <h3 class="profile-name">Nome do Técnico</h3>
+                <h3 class="profile-name" id="profile-name">Nome do Técnico</h3>
                 <div class="profile-details">
-                    <p class="profile-info"><strong>Email:</strong>...</p>
-                    <p class="profile-info"><strong>Matrícula:</strong>...</p>
-                    <p class="profile-info"><strong>Função:</strong>...</p>
-                    <p class="profile-info"><strong>Setor:</strong>...</p>
-                    <p class="profile-info"><strong>Telefone:</strong>(00) 00000-0000</p>
-                    <p class="profile-info"><strong>Unidade:</strong>...</p>
+                    <p class="profile-info"><strong>Email:</strong> <span id="profile-email">tecnico.nome@fortes.com.br</span></p>
+                    <p class="profile-info"><strong>Matrícula:</strong> <span id="profile-matricula">12345</span></p>
+                    <p class="profile-info"><strong>Função:</strong> <span id="profile-funcao">Técnico de Manutenção Sênior</span></p>
+                    <p class="profile-info"><strong>Setor:</strong> <span id="profile-setor">Elétrica</span></p>
+                    <p class="profile-info"><strong>Telefone:</strong> <span id="profile-telefone">(27) 99999-8888</span></p>
+                    <p class="profile-info"><strong>Unidade:</strong> <span id="profile-unidade">Matriz - Vitória</span></p>
                 </div>
-                <button class="edit-btn"><i class="fa-solid fa-pencil-alt"></i> Editar Perfil</button>
+                <a href="/Trabalho Fortes/Trabalho Fortes ENG/Tecnico/Perfil/Editar_perfil/editar_perfil.html" class="edit-btn" style="text-decoration: none;">
+                    <i class="fa-solid fa-pencil-alt"></i> Editar Perfil
+                </a>
             </div>
-        
         </div>
     </main>
     <script src="perfil.js"></script>

@@ -55,7 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Avisa o usuário e redireciona de volta para o perfil
         alert('Perfil salvo com sucesso!');
-        window.location.href = 'perfil.html'; // Redireciona para a página de perfil
+        
+        // ==================
+        //     CORREÇÃO 
+        // ==================
+        // Procura 'perfil.html' no diretório PAI (../)
+        window.location.href = '../perfil.html'; 
     }
 
     // 3. LIGAR EVENTOS
