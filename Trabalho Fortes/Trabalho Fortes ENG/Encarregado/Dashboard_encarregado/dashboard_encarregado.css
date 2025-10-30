@@ -1,6 +1,3 @@
-/* ================================= */
-/* O SEU ESQUELETO CSS      */
-/* ================================= */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -21,7 +18,7 @@ body {
     border-right: 1px solid #ddd;
     padding: 20px;
     transition: transform 0.3s ease-in-out;
-    z-index: 1000; /* Prioridade alta */
+    z-index: 1000; 
     overflow-y: auto; 
 }
 .sidebar-header {
@@ -72,21 +69,14 @@ body {
     padding: 10px 12px;
     font-size: 1.2rem;
     cursor: pointer;
-    z-index: 1001; /* Prioridade mais alta (acima da sidebar) */
+    z-index: 1001; 
 }
-
-/* ================================= */
-/* CSS ADICIONADO PARA O CONTEÚDO  */
-/* ================================= */
-
-/* 1. Layout do Conteúdo Principal */
 .main-content {
     margin-left: 250px; 
     padding: 30px;
     transition: margin-left 0.3s ease-in-out;
-    /* --- CORREÇÃO DE PRIORIDADE --- */
     position: relative; 
-    z-index: 1; /* Prioridade baixa (atrás da sidebar) */
+    z-index: 1; 
 }
 .main-title {
     font-size: 2rem;
@@ -102,14 +92,12 @@ body {
     margin-bottom: 20px;
 }
 
-/* 2. Grid do Dashboard */
 .dashboard-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
 
-/* 3. Estilo dos Widgets (Caixas Brancas) */
 .widget {
     background-color: #ffffff;
     padding: 20px;
@@ -118,20 +106,11 @@ body {
     flex: 1;
 }
 
-/* 4. Widgets Específicos */
-
-/* //
-// O CSS DO CALENDÁRIO FOI REMOVIDO DAQUI
-//
-*/
-
-/* --- Gráfico --- */
 .chart-widget {
     flex-basis: 300px;
     flex-grow: 2; 
     display: flex;
     flex-direction: column;
-    /* Adicionado para garantir uma altura mínima */
     min-height: 250px; 
 }
 .chart-widget h3 {
@@ -146,7 +125,7 @@ body {
     justify-content: center;
     gap: 30px;
     margin-top: auto;
-    flex-wrap: wrap; /* Para o caso de telas muito pequenas */
+    flex-wrap: wrap;
 }
 .pie-chart {
     width: 150px;
@@ -167,7 +146,6 @@ body {
 .chart-legend .approved { background-color: #28a745; }
 .chart-legend .reproved { background-color: #dc3545; }
 
-/* --- Notícias --- */
 .news-widgets {
     flex-basis: 30%; 
 }
@@ -181,10 +159,6 @@ body {
     line-height: 1.5;
     color: #555;
 }
-
-/* ================================= */
-/* RESPONSIVIDADE (SEU CÓDIGO)     */
-/* ================================= */
 
 @media (max-width: 992px) {
     .dashboard-grid.news-widgets {

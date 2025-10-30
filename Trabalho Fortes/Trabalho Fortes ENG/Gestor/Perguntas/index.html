@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="perguntas.css">
+    <title>Perguntas Frequentes</title>
 </head>
 <body>
+     <button class="hamburger-btn" id="toggle-sidebar">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="/Trabalho Fortes/Trabalho Fortes ENG/Tecnico/Dashboard_tecnico/dashboard_tecnico.html">
+            <img src="/Trabalho Fortes/Fortes engenharia.jpeg" alt="Logo da Empresa" class="logo">
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Gestor/Perfil/perfil.html"><i class="fa-solid fa-user"></i> Perfil</a></li>
+            <li><a href="#"><i class="fa-solid fa-check"></i> Check-in</a></li>
+            <li><a href="#"><i class="fa-solid fa-list-ul"></i> Lista de solicitações</a></li>
+            <li><a href="#"><i class="fa-solid fa-chart-bar"></i> Relatórios</a></li>
+            <li><a href="#"><i class="fa-solid fa-bell"></i> Notificações</a></li>
+            <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Gestor/Perguntas/index.html"><i class="fa-solid fa-question-circle"></i> Perguntas</a></li>
+            <li><a href="#"><i class="fa-solid fa-cog"></i> Configurações</a></li>
+            <li id="logout"><a href="#"><i class="fa-solid fa-sign-out-alt"></i>Deslogar</a></li>
+        </ul>
+    </nav>
     <div class="card">
         <h3>Perguntas Frequentes</h3>
         <div class="faq-item">
@@ -18,7 +41,14 @@
         </div>
         <div class="faq-item">
             <h4>Como entro em contato com o suporte técnico?</h4>
-            <p>Você pode entrar em contato com o suporte técnico através do e-mail
+            <p>Você pode entrar em contato com o suporte técnico através do e-mail suporte@fortes.com.br ou pelo telefone (27) 3333-0000.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Como atualizo minhas informações de perfil?</h4>
+            <p>Para atualizar suas informações de perfil, acesse a seção "Perfil" no menu lateral e clique no botão "Editar Perfil".</p>
+        </div>
     </div>
+
+    <script src="perguntas.js"></script>
 </body>
 </html>

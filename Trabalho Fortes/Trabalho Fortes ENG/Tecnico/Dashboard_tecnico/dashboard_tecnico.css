@@ -1,10 +1,10 @@
 :root {
-    --color-primary: #007bff; /* Azul para links e ações */
+    --color-primary: #007bff;
     --color-background: #f0f2f5;
     --color-text-dark: #333;
     --color-text-light: #444;
     --sidebar-width: 250px;
-    --header-height-mobile: 65px; /* Altura para compensar o botão hambúrguer */
+    --header-height-mobile: 65px;
 }
 
 * {
@@ -50,7 +50,7 @@ body {
     color: var(--color-text-dark);
     border-radius: 8px;
     transition: background-color 0.2s;
-    margin-bottom: 10px; /* Movido de li para a */
+    margin-bottom: 10px; 
 }
 
 .sidebar-menu a i {
@@ -62,7 +62,6 @@ body {
     background-color: #f0f0f0;
 }
 
-/* Botão Hamburguer (Inicialmente escondido) */
 .hamburger-btn {
     display: none;
     position: fixed;
@@ -74,7 +73,7 @@ body {
     padding: 10px 12px;
     font-size: 1.2rem;
     cursor: pointer;
-    z-index: 1001; /* Fica acima da sidebar */
+    z-index: 1001;
 }
 
 .main-content {
@@ -83,7 +82,6 @@ body {
     transition: margin-left 0.3s ease-in-out;
 }
 
-/* Estilos de Texto Comuns */
 .card p, .card_avisos p {
     color: var(--color-text-light);
     line-height: 1.5;
@@ -100,7 +98,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     transition: box-shadow 0.2s;
-    padding: 15px; /* Padrão para avisos */
+    padding: 15px;
     margin-bottom: 15px;
 }
 
@@ -145,7 +143,7 @@ body {
     font-size: 1.5rem;
     color: var(--color-text-dark);
     text-align: center;
-    margin-bottom: 20px; /* Aumentado um pouco para separação */
+    margin-bottom: 20px; 
     margin-top: 0;
 }
 
@@ -166,9 +164,9 @@ body {
     flex-grow: 1;
     flex-shrink: 1;
     min-height: 180px;
-    padding: 16px; /* Mantido o padding específico para cards de notícia */
+    padding: 16px; 
     margin: 0;
-    background-color: #ffffff; /* Cor de fundo para as notícias */
+    background-color: #ffffff; 
     color: white; 
 }
 
@@ -181,7 +179,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* CORREÇÃO DO BOTÃO HAMBÚRGUER: Alinhado com a classe JS esperada */
     .sidebar {
         transform: translateX(-100%);
     }
@@ -191,20 +188,17 @@ body {
     }
     
     .hamburger-btn {
-        display: block; /* Oculto em desktop, visível em mobile */
+        display: block;
     }
     .sidebar.open {
         transform: translateX(0);
     }
-    /* CORREÇÃO DA SOBREPOSIÇÃO DO TÍTULO */
     .main-content {
         margin-left: 0; 
         width: 100%;
-        /* Aumentado o padding superior para que o conteúdo fique abaixo do botão hambúrguer fixo */
         padding: var(--header-height-mobile) 20px 30px 20px; 
     }
 
-    /* Empilhamento do Calendário e Avisos */
     .top-content-wrapper {
         flex-direction: column; 
         gap: 20px;
@@ -233,25 +227,21 @@ body {
     }
 
     .Noticias_da_empresa .card {
-        flex-basis: 100%; /* Garante que os cards ocupem a largura total */
+        flex-basis: 100%;
         min-height: 160px;
     }
 }
 
-/* ===================================== */
-/* 5. Otimização para Telas Maiores */
-/* ===================================== */
-
 @media (min-width: 900px) {
     .Noticias_da_empresa .card {
-        flex-basis: calc(50% - 10px); /* Tenta 2 cards por linha */
+        flex-basis: calc(50% - 10px);
         min-height: 220px;
     }
 }
 
 @media (min-width: 1200px) {
     .Noticias_da_empresa .card {
-        flex-basis: calc(33.333% - 14px); /* Tenta 3 cards por linha */
+        flex-basis: calc(33.333% - 14px);
         min-height: 250px;
     }
 }

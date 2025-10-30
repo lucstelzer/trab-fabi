@@ -115,11 +115,11 @@ body, html {
     accent-color: #064499;
 }
 .error-message {
-    color: #dc3545; /* Um tom de vermelho */
+    color: #dc3545; 
     font-size: 0.9rem;
     font-weight: 500;
     text-align: center;
     margin-top: 10px;
-    margin-bottom: -5px; /* Ajuste para não quebrar o layout */
-    display: none; /* Começa escondido */
+    margin-bottom: -5px; 
+    display: none; 
 }
