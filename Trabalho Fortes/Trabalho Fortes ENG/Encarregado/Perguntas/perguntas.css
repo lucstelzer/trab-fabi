@@ -81,6 +81,10 @@ body {
     .sidebar {
         transform: translateX(-100%);
     }
+    .main-content {
+        margin-left: 0;
+        padding-top: 70px;
+    }
     .sidebar.open {
         transform: translateX(0);
     }
@@ -156,7 +160,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    body { padding: 2rem; padding-left: 2rem; }
+    body { padding: 2rem; padding-left: 2rem; margin-top: 3rem;}
     .card { padding: 1.5rem; }
     .card h3 { font-size: 1.5rem; }
     .faq-item { padding: 1rem; }

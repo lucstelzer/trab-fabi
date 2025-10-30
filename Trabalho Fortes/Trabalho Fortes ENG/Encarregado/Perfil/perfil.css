@@ -77,11 +77,17 @@ body {
 
 .hamburger-btn {
     display: none;
-    position: fixed; top: 14px; left: 14px;
-    background: var(--color-surface); border: 1px solid rgba(0,0,0,0.08);
-    padding: 8px 10px; border-radius: 8px; z-index: 1100;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 12px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1001;
 }
-
 .main-content {
     margin-left: var(--sidebar-width);
     min-height: 100vh;

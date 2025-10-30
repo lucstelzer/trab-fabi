@@ -21,7 +21,7 @@ html, body {
 }
 
 body {
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background-color: var(--color-background);
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;
@@ -40,18 +40,22 @@ body {
     transition: transform 0.3s ease-in-out;
     z-index: 1000;
 }
+
 .sidebar-header {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 30px;
     text-align: center;
 }
+
 .sidebar-menu {
     list-style: none;
 }
+
 .sidebar-menu li {
     margin-bottom: 10px;
 }
+
 .sidebar-menu a {
     display: flex;
     align-items: center;
@@ -61,13 +65,16 @@ body {
     border-radius: 8px;
     transition: background-color 0.2s;
 }
+
 .sidebar-menu a i {
     margin-right: 12px;
     width: 20px;
 }
+
 .sidebar-menu a:hover {
     background-color: #f0f0f0;
 }
+
 .hamburger-btn {
     display: none;
     position: fixed;
@@ -81,7 +88,6 @@ body {
     cursor: pointer;
     z-index: 1001;
 }
-
 .main-content {
     margin-left: var(--sidebar-width);
     min-height: 100vh;
