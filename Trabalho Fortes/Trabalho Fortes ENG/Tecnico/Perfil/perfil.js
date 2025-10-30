@@ -54,3 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
     carregarPerfil();
     // --- FIM DO CÓDIGO NOVO ---
 });
+// Função para realizar o logout
+        function logout() {
+            // Remove o token ou a informação de sessão do armazenamento local
+            localStorage.removeItem('token');
+            // Redireciona o usuário para a página de login
+            window.location.href = '/Trabalho Fortes/Trabalho Fortes ENG/Login/login.html';
+        }
+
+        // Adiciona um "ouvinte" de evento ao botão de logout
+        document.getElementById('logout').addEventListener('click', logout);
