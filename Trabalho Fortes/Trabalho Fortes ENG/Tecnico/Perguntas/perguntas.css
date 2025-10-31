@@ -93,7 +93,7 @@ body {
 @media (max-width: 768px) {
     body {
         padding: 1rem;
-        padding-top: 4rem;
+        margin-top: 3rem;
     }
     
     .hamburger-btn {

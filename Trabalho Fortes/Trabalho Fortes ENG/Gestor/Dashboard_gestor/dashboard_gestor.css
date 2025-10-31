@@ -1,0 +1,320 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    overflow-y: scroll; 
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000; 
+    overflow-y: auto; 
+}
+.sidebar-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+}
+.sidebar-menu {
+    list-style: none;
+}
+.sidebar-menu li {
+    margin-bottom: 10px;
+}
+.sidebar-menu li.separator {
+    height: 1px;
+    background-color: #eee;
+    margin: 15px 0;
+}
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 8px;
+    transition: background-color 0.2s, color 0.2s;
+    font-weight: 500;
+}
+.sidebar-menu a i {
+    margin-right: 12px;
+    width: 20px;
+    color: #555;
+}
+.sidebar-menu a:hover {
+    background-color: #e0e0e0;
+    color: #000;
+}
+.hamburger-btn {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 12px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1001; 
+}
+.main-content {
+    margin-left: 250px; 
+    padding: 30px;
+    transition: margin-left 0.3s ease-in-out;
+    position: relative; 
+    z-index: 1; 
+}
+.main-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 30px;
+}
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.dashboard-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.widget {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    flex: 1;
+}
+
+.chart-widget {
+    flex-basis: 300px;
+    flex-grow: 2; 
+    display: flex;
+    flex-direction: column;
+    min-height: 250px; 
+}
+.chart-widget h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #333;
+}
+.pie-chart-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: auto;
+    flex-wrap: wrap;
+}
+.pie-chart {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #28a745 0% 70%, 
+        #dc3545 70% 100%
+    );
+}
+.chart-legend .dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.chart-legend .approved { background-color: #28a745; }
+.chart-legend .reproved { background-color: #dc3545; }
+
+.news-widgets {
+    flex-basis: 30%; 
+}
+.news-item h3 {
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #333;
+}
+.news-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #555;
+}
+.widget.grid-widget {
+    display: grid;
+    flex-wrap:wrap;
+    flex-direction: row;
+}
+
+@media (max-width: 992px) {
+    .dashboard-grid.news-widgets {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger-btn {
+        display: block;
+    }
+    .sidebar {
+        transform: translateX(-100%); 
+    }
+    .main-content {
+        margin-left: 0;
+        padding-top: 70px;
+    }
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    .dashboard-grid.top-widgets {
+        flex-direction: column;
+    }
+}
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 350px; /* Largura ajustável */
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.card {
+    background-color: #ffffff;
+}
+
+/* --- Navegação e Notificação --- */
+.header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.nav-button {
+    background: #fff; 
+    border: 1px solid #333;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+    cursor: pointer;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.notification-box {
+    background-color: #fff;
+    border: 1px solid #333;
+    padding: 10px 15px;
+    flex-grow: 1;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+/* --- Ações (Sim/Não) --- */
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Alinha o texto do botão por baixo */
+    margin-bottom: 40px;
+}
+
+.action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon {
+    font-size: 3em;
+    margin-bottom: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1; /* Centraliza o ícone */
+    font-weight: bold;
+}
+
+.green-check {
+    color: white;
+    background-color: #4CAF50; /* Verde forte */
+}
+
+.red-x {
+    color: white;
+    background-color: #f44336; /* Vermelho forte */
+}
+
+.btn {
+    background-color: #fff;
+    border: 1px solid #333;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    min-width: 80px;
+}
+
+/* --- Detalhes --- */
+.details-link {
+    text-align: center;
+}
+
+.details-btn {
+    background-color: #fff;
+    border: 1px solid #333;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box; /* Inclui padding e border na largura */
+}
+
+.details-btn a {
+    color: blue; /* Simula o link "clickaqui" */
+    text-decoration: underline;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline;
+}
+
+/* Estilo de hover simples para os botões */
+.nav-button:hover, .btn:hover, .details-btn:hover {
+    opacity: 0.8;
+}
