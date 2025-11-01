@@ -17,6 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
             password: "456", 
             role: "encarregado",
             redirectTo: "/Trabalho Fortes/Trabalho Fortes ENG/Encarregado/Dashboard_encarregado/dashboard_encarregado.html"
+        },
+        { 
+            username: "gestor", 
+            password: "789", 
+            role: "gestor",
+            redirectTo: "/Trabalho Fortes/Trabalho Fortes ENG/Gestor/Dashboard_gestor/dashboard_gestor.html"
         }
     ];
    
