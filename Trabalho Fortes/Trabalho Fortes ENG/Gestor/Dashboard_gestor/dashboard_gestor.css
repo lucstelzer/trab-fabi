@@ -188,29 +188,28 @@ body {
     .dashboard-grid.top-widgets {
         flex-direction: column;
     }
+    .container {
+        align-content: center;
+    }
 }
 .container {
     background-color: #ffffff;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 350px; /* Largura ajustável */
     text-align: center;
 }
 
 h1 {
-    color: #333;
+    color: #000000;
     font-size: 1.5em;
     margin-top: 0;
     margin-bottom: 20px;
-    text-align: left;
+    text-align: center;
 }
 
 .card {
     background-color: #ffffff;
 }
 
-/* --- Navegação e Notificação --- */
 .header-nav {
     display: flex;
     align-items: center;
@@ -220,9 +219,8 @@ h1 {
 
 .nav-button {
     background: #fff; 
-    border: 1px solid #333;
-    border-radius: 50%;
-    width: 40px;
+    border-radius: 100%;
+    width: 45px;
     height: 40px;
     font-size: 1.2em;
     cursor: pointer;
@@ -235,18 +233,15 @@ h1 {
 
 .notification-box {
     background-color: #fff;
-    border: 1px solid #333;
     padding: 10px 15px;
     flex-grow: 1;
     margin: 0 10px;
     font-weight: bold;
 }
-
-/* --- Ações (Sim/Não) --- */
 .actions {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end; /* Alinha o texto do botão por baixo */
+    align-items: flex-end; 
     margin-bottom: 40px;
 }
 
@@ -265,56 +260,27 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    line-height: 1; /* Centraliza o ícone */
+    line-height: 1; 
     font-weight: bold;
 }
 
-.green-check {
-    color: white;
-    background-color: #4CAF50; /* Verde forte */
-}
-
-.red-x {
-    color: white;
-    background-color: #f44336; /* Vermelho forte */
-}
-
 .btn {
-    background-color: #fff;
-    border: 1px solid #333;
+    background-color: #ffffff;
     padding: 8px 20px;
     cursor: pointer;
     font-size: 1em;
     font-weight: bold;
     min-width: 80px;
+    border-radius: 5%;
 }
-
-/* --- Detalhes --- */
-.details-link {
-    text-align: center;
-}
-
-.details-btn {
-    background-color: #fff;
-    border: 1px solid #333;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 1em;
-    width: 100%;
-    box-sizing: border-box; /* Inclui padding e border na largura */
-}
-
-.details-btn a {
-    color: blue; /* Simula o link "clickaqui" */
-    text-decoration: underline;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    display: inline;
-}
-
-/* Estilo de hover simples para os botões */
 .nav-button:hover, .btn:hover, .details-btn:hover {
     opacity: 0.8;
+}
+@media (min-width: 1200px) {
+    .dashboard-grid.top-widgets .widget.grid-widget{
+        justify-items: center;
+    }
+    .dashboard-grid.top-widgets .widget.grid-widget .container .card {
+        width: 100%;
+    }
 }
