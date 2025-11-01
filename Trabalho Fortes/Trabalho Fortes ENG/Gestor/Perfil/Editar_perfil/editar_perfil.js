@@ -19,9 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function carregarFormulario() {
         nomeInput.value = localStorage.getItem('gestor_nome') || "Nome do Gestor";
         emailInput.value = localStorage.getItem('gestor_email') || "gestor.nome@fortes.com.br";
-        telefoneInput.value = localStorage.getItem('gestor_telefone') || "(27) 99999-8888";
+        telefoneInput.value = localStorage.getItem('gestor_telefone') || "(27) 99999-9999";
         
-        matriculaInput.value = localStorage.getItem('gestor_matricula') || "12345";
+        matriculaInput.value = localStorage.getItem('gestor_matricula') || "45678";
         funcaoInput.value = localStorage.getItem('gestor_funcao') || "Técnico de Manutenção Sênior";
     }
 

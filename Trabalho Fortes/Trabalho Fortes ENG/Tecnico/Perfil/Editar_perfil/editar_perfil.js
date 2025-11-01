@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function carregarFormulario() {
         nomeInput.value = localStorage.getItem('tecnico_nome') || "Nome do Técnico";
         emailInput.value = localStorage.getItem('tecnico_email') || "tecnico.nome@fortes.com.br";
-        telefoneInput.value = localStorage.getItem('tecnico_telefone') || "(27) 99999-8888";
+        telefoneInput.value = localStorage.getItem('tecnico_telefone') || "(27) 99999-9999";
         
         matriculaInput.value = localStorage.getItem('tecnico_matricula') || "12345";
         funcaoInput.value = localStorage.getItem('tecnico_funcao') || "Técnico de Manutenção Sênior";
