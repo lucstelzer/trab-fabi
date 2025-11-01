@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function carregarFormulario() {
         nomeInput.value = localStorage.getItem('encarregado_nome') || "Nome do Encarregado";
         emailInput.value = localStorage.getItem('encarregado_email') || "encarregado.nome@fortes.com.br";
-        telefoneInput.value = localStorage.getItem('encarregado_telefone') || "(27) 99999-8888";
+        telefoneInput.value = localStorage.getItem('encarregado_telefone') || "(27) 11111-1111";
         
-        matriculaInput.value = localStorage.getItem('encarregado_matricula') || "12345";
-        funcaoInput.value = localStorage.getItem('encarregado_funcao') || "Técnico de Manutenção Sênior";
+        matriculaInput.value = localStorage.getItem('encarregado_matricula') || "34567";
+        funcaoInput.value = localStorage.getItem('encarregado_funcao') || "Encarregado de Manutenção";
     }
 
     function salvarFormulario() {

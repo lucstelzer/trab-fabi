@@ -9,12 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function carregarPerfil() {
-        const nomeSalvo = localStorage.getItem('tecnico_nome');
-        const emailSalvo = localStorage.getItem('tecnico_email');
-        const telefoneSalvo = localStorage.getItem('tecnico_telefone');
-        const matriculaSalva = localStorage.getItem('tecnico_matricula');
-        const funcaoSalva = localStorage.getItem('tecnico_funcao');
-        const setorSalvo = localStorage.getItem('tecnico_setor');
+        const nomeSalvo = localStorage.getItem('encarregado_nome');
+        const emailSalvo = localStorage.getItem('encarregado_email');
+        const telefoneSalvo = localStorage.getItem('encarregado_telefone');
+        const matriculaSalva = localStorage.getItem('encarregado_matricula');
+        const funcaoSalva = localStorage.getItem('encarregado_funcao');
+        const setorSalvo = localStorage.getItem('encarregado_setor');
         const unidadeSalva = localStorage.getItem('tecnico_unidade');
 
         if (nomeSalvo) {
