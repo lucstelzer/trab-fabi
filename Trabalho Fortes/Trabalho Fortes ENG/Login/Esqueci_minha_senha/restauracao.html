@@ -3,33 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redefinir Senha</title>
-    <link rel="stylesheet" href="restauracao.css"> </head>
+    <title>Recuperar Senha</title>
+    <link rel="stylesheet" href="esqueci.css"> 
+    <link rel="stylesheet" href="restauracao.css"> 
+</head>
 <body>
     <div class="container">
-        <h1>Nova Senha</h1>
-        <p id="message">Insira e confirme sua nova senha.</p>
+        <h1>Recuperar Senha</h1>
         
-        <form id="resetForm" style="display:none;">
+        <p id="message">
+            Digite seu nome de cadastro.<br>
+            Enviaremos um link de redefinição de senha.
+        </p>
+        <form id="requestForm">
             <div class="form-group">
-                <label for="newPassword">Nova Senha:</label>
-                <input type="password" id="newPassword" name="newPassword" required minlength="8">
-            </div>
-            
-            <div class="form-group">
-                <label for="confirmPassword">Confirme a Senha:</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required minlength="8">
-            </div>
-            
-            <button type="submit" class="btn-enviar">Redefinir Senha</button>
+                <label for="username">Cadastro:</label>
+                <input type="text" id="username" name="username" required>
+            </div> 
+            <button type="submit" class="btn-enviar">Solicitar Link</button>
         </form>
-
         <p class="login-link">
             <a href="/Trabalho Fortes/Trabalho Fortes ENG/Login/login.html">Voltar para o Login</a>
         </p>
     </div>
-
-    
-    <script src="/Trabalho Fortes/Trabalho Fortes ENG/Login/Esqueci_minha_senha/restauracao.js"></script>
+    <script src="restauracao.js"></script>
 </body>
 </html>
