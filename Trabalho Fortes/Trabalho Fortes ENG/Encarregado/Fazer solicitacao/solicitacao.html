@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
+    
     <link rel="stylesheet" href="solicitacao.css">
 </head>
 <body>
@@ -32,10 +35,17 @@
 
         <div class="form-container">
             <form id="solicitacao-form">
+                
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="nome">Nome</label>
-                        <input type="text" id="nome" name="nome" required>
+                        <label for="tecnicos">Nome / ID (Técnicos)</label>
+                        <select id="tecnicos" name="tecnicos" multiple required>
+                            <option value="101">João Silva (ID: 101)</option>
+                            <option value="102">Maria Souza (ID: 102)</option>
+                            <option value="103">Carlos Pereira (ID: 103)</option>
+                            <option value="104">Ana Beatriz (ID: 104)</option>
+                            <option value="105">Técnico Visitante (ID: 105)</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="motivo">Motivo</label>
@@ -48,6 +58,7 @@
                         </select>
                     </div>
                 </div>
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="data">Data</label>
@@ -75,6 +86,9 @@
             </form>
         </div>
     </main>   
+
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
     <script src="solicitação.js"></script>
 </body>
 </html>
