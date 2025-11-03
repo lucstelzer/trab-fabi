@@ -2,7 +2,7 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(180deg, #63676bec 0%, #8d98a5b9 100%);
+    background-color: #14488b;
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
 }
