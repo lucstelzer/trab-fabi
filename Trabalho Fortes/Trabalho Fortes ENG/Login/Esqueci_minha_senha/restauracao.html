@@ -1,12 +1,75 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="restauracao.css">
-</head>
+    <title>Redefinir Senha</title>
+    <link rel="stylesheet" href="estilos.css"> </head>
 <body>
-    
+    <div class="container">
+        <h1>Nova Senha</h1>
+        <p id="message">Insira e confirme sua nova senha.</p>
+        
+        <form id="resetForm" style="display:none;">
+            <div class="form-group">
+                <label for="newPassword">Nova Senha:</label>
+                <input type="password" id="newPassword" name="newPassword" required minlength="8">
+            </div>
+            
+            <div class="form-group">
+                <label for="confirmPassword">Confirme a Senha:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required minlength="8">
+            </div>
+            
+            <button type="submit" class="btn-enviar">Redefinir Senha</button>
+        </form>
+
+        <p class="login-link">
+            <a href="/login">Voltar para o Login</a>
+        </p>
+    </div>
+
+    <script>
+        const form = document.getElementById('resetForm');
+        const messageDisplay = document.getElementById('message');
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+
+        if (token) {
+            // Se o token existe na URL, mostra o formulário
+            form.style.display = 'block';
+        } else {
+            messageDisplay.textContent = 'Token de redefinição de senha não encontrado.';
+        }
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (newPassword !== confirmPassword) {
+                alert('As senhas não coincidem!');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/reset-password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token, newPassword }),
+                });
+
+                const data = await response.json();
+                messageDisplay.textContent = data.message;
+                form.style.display = 'none'; // Esconde o formulário após a tentativa
+
+            } catch (error) {
+                messageDisplay.textContent = 'Não foi possível redefinir a senha. Tente novamente.';
+                console.error('Erro:', error);
+            }
+        });
+    </script>
+    <script src="/Trabalho Fortes/Trabalho Fortes ENG/Login/Esqueci_minha_senha/restauracao.js"></script>
 </body>
 </html>
