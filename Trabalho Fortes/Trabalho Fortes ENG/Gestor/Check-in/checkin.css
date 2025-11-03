@@ -5,7 +5,24 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f0f2f5;
     padding: 2rem;
-    padding-left: calc(250px + 2rem);
+    margin-left: calc(250px + 2rem);
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 .sidebar {
     position: fixed;
@@ -52,29 +69,13 @@ body {
     position: fixed;
     top: 15px;
     left: 15px;
-    width: 42px;
-    height: 42px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px 12px;
     font-size: 1.2rem;
     cursor: pointer;
     z-index: 1001;
-    align-items: center;
-    justify-content: center;
-}
-
-.hamburger-btn i {
-    font-size: 1.2rem;
-    color: var(--color-text);
-    line-height: 1;
-}
-
-.hamburger-btn i {
-    display: block;
-    width: 20px;
-    text-align: center;
 }
 @media (max-width: 768px) {
     .hamburger-btn {
@@ -91,7 +92,7 @@ body {
         transform: translateX(0);
     }
     body{
-        padding-left: 1rem;
+        padding: 1rem;
     }
 }
 form {
