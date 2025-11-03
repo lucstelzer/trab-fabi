@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notificações - Fortes ENG</title>
+    <title>Solicitações de horas-extras</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-      <nav class="sidebar" id="sidebar">
+     <nav class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <a href="/Trabalho Fortes/Trabalho Fortes ENG/Gestor/Dashboard_gestor/dashboard_gestor.html">
             <img src="/Trabalho Fortes/Fortes engenharia.jpeg" alt="Logo da Empresa" class="logo">
@@ -17,7 +17,7 @@
         <ul class="sidebar-menu">
             <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Gestor/Perfil/perfil.html"><i class="fa-solid fa-user"></i> Perfil</a></li>
             <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Gestor/Check-in/checkin.html"><i class="fa-solid fa-check"></i> Check-in</a></li>
-            <li><a href="#"><i class="fa-solid fa-list-ul"></i> Fazer Solicitação</a></li>
+            <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Gestor/Aprovar/reprovar/index.html"><i class="fa-solid fa-list-ul"></i>Solicitações de horas-extras</a></li>
             <li><a href="#"><i class="fa-solid fa-chart-bar"></i> Relatórios</a></li>
             <li><a href="#"><i class="fa-solid fa-bell"></i> Notificações</a></li>
             <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Gestor/Perguntas/index.html"><i class="fa-solid fa-question-circle"></i> Perguntas</a></li>
@@ -25,67 +25,21 @@
             <li id="logout"><a href="#"><i class="fa-solid fa-sign-out-alt"></i>Deslogar</a></li>
         </ul>
     </nav>
-
-    <button class="hamburger-btn" id="toggle-sidebar">
-        <i class="fas fa-bars"></i>
-    </button>
-    <h3>Solicitações de horas-extras:</h3>
-            <div class="content-body">
-                <div class="notifications-list">
-                    <div class="status-tabs">
-                        <span>Status:</span>
-                        <button class="tab-button active">Aprovadas</button>
-                        <button class="tab-button">Reprovadas</button>
-                        <button class="tab-button">Pendentes</button>
-                    </div>
-
-                    <div class="notification-item">
-                        <div class="item-details">
-                            <p class="item-number">Nº 421</p>
-                            <p class="item-name">Nome Solicitação</p>
-                            <p class="item-date-time">12/12/25</p>
-                            <p class="item-date-time">18:00 as 19:00</p>
-                            <p class="item-justification">Justificativa</p>
-                        </div>
-                        <div class="item-actions">
-                            <button class="btn-action btn-approve">Aprovar</button>
-                            <button class="btn-action btn-reject">Reprovar</button>
-                            <button class="btn-link">Ver detalhes</button>
-                        </div>
-                    </div>
-                    
-                    <div class="notification-item">
-                        <div class="item-details">
-                            <p class="item-number">Nº 421</p>
-                            <p class="item-name">Nome Solicitação</p>
-                            <p class="item-date-time">12/12/25</p>
-                            <p class="item-date-time">18:00 as 19:00</p>
-                            <p class="item-justification">Justificativa</p>
-                        </div>
-                        <div class="item-actions">
-                            <button class="btn-action btn-approve">Aprovar</button>
-                            <button class="btn-action btn-reject">Reprovar</button>
-                            <button class="btn-link">Ver detalhes</button>
-                        </div>
-                    </div>
-
-                    <div class="notification-item">
-                        <div class="item-details">
-                            <p class="item-number">Nº 421</p>
-                            <p class="item-name">Nome Solicitação</p>
-                            <p class="item-date-time">12/12/25</p>
-                            <p class="item-date-time">18:00 as 19:00</p>
-                            <p class="item-justification">Justificativa Completa</p>
-                        </div>
-                        <div class="item-actions bottom-actions">
-                            <button class="btn-action btn-approve">Aprovar</button>
-                            <button class="btn-action btn-reject">Reprovar</button>
-                            <button class="btn-link btn-back">Voltar</button>
-                        </div>
-                    </div>
+        <main class="main-content">
+            <h3>Solicitações de horas-extras:</h3>
+            <div class="content-header">
+                <div class="status-tabs">
+                    <span class="status-label">Status:</span>
+                    <button class="tab-button" data-status="aprovadas">Aprovadas</button>
+                    <button class="tab-button" data-status="reprovadas">Reprovadas</button>
+                    <button class="tab-button active" data-status="pendentes">Pendentes</button>
                 </div>
+            </div>
+
+            <div class="notifications-list" id="notifications-content">
                 </div>
-        </main>
+            
+            </main>
     </div>
 
     <script src="script.js"></script>

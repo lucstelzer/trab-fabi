@@ -1,175 +1,170 @@
+// script.js
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Referências dos elementos principais
     const tabButtons = document.querySelectorAll('.tab-button');
-    const notificationsListContainer = document.querySelector('.notifications-list');
-    const calendarDatesTable = document.querySelector('.calendar-dates tbody');
+    const notificationsContent = document.getElementById('notifications-content');
 
     // --- MOCK DATA (Dados Simulados) ---
     const mockNotifications = {
-        'Aprovadas': [
-            { id: 423, nome: "Solicitação de Acesso", data: "01/10/25", hora: "09:00 as 10:00", justificativa: "Acesso de emergência. (Aprovado)" },
-            { id: 422, nome: "Troca de Turno", data: "02/10/25", hora: "14:00 as 18:00", justificativa: "Acordo mútuo. (Aprovado)" }
+        'pendentes': [
+            { id: 421, nome: "Nome Solicitação", data: "12/12/25", hora: "18:00 as 19:00", justificativa: "Justificativa de Pedro S." },
+            { id: 422, nome: "Outra Solicitação", data: "13/12/25", hora: "19:00 as 20:00", justificativa: "Justificativa de Maria P." }
         ],
-        'Reprovadas': [
-            { id: 420, nome: "Pedido de Férias", data: "15/11/25", hora: "-", justificativa: "Conflito de agenda. (Reprovado)" }
+        'aprovadas': [
+            { id: 419, nome: "Solicitação Antiga A", data: "01/12/25", hora: "14:00 as 15:00", justificativa: "Revisão OK" },
+            { id: 418, nome: "Solicitação Antiga B", data: "02/12/25", hora: "15:00 as 16:00", justificativa: "Confirmada" }
         ],
-        'Pendentes': [
-            { id: 421, nome: "Nome Solicitação", data: "12/12/25", hora: "18:00 as 19:00", justificativa: "Justificativa Pendente" },
-            { id: 419, nome: "Solicitação Extra", data: "20/12/25", hora: "08:00 as 12:00", justificativa: "Serviço urgente." }
+        'reprovadas': [
+            { id: 417, nome: "Solicitação Negada", data: "03/12/25", hora: "08:00 as 09:00", justificativa: "Fora do prazo" }
         ]
     };
 
     // --- FUNÇÕES DE RENDERIZAÇÃO ---
 
-    // Função para criar o HTML de um item de notificação
-    const createNotificationHTML = (notification) => {
-        // Define as ações padrão, a menos que seja o último item do wireframe
-        const isLastItem = notification.id === 421 && notification.justificativa === "Justificativa Completa";
-        
-        // Simula o HTML base do wireframe
+    /**
+     * Gera o HTML da área de ações/status baseada no status e na visualização.
+     */
+    const renderActionArea = (status, isDetailView = false) => {
+        if (status === 'pendentes') {
+            if (isDetailView) {
+                // Último item do wireframe: botões de ação + Voltar
+                return `
+                    <div class="item-actions detail-actions">
+                        <button class="btn-action btn-approve" data-action="aprovar">Aprovar</button>
+                        <button class="btn-action btn-reject" data-action="reprovar">Reprovar</button>
+                        <button class="btn-action btn-back" data-action="voltar">Voltar</button>
+                    </div>
+                `;
+            } else {
+                // Botões de ação padrão para Pendentes
+                return `
+                    <div class="item-actions">
+                        <button class="btn-action btn-approve" data-action="aprovar">Aprovar</button>
+                        <button class="btn-action btn-reject" data-action="reprovar">Reprovar</button>
+                        <button class="btn-link" data-action="detalhes">Ver detalhes</button>
+                    </div>
+                `;
+            }
+        } else {
+            // Aprovadas/Reprovadas: SEM botões de ação, apenas indicador de status
+            const label = status === 'aprovadas' ? 'Aprovada' : 'Reprovada';
+            const statusClass = status === 'aprovadas' ? 'status-approved' : 'status-rejected';
+            
+            return `
+                <div class="item-status-display ${statusClass}">
+                    <p>${label}</p>
+                    <button class="btn-link" data-action="detalhes">Ver detalhes</button>
+                </div>
+            `;
+        }
+    };
+
+    /**
+     * Cria o HTML para um único item de notificação.
+     */
+    const createNotificationHTML = (notification, status, isDetailView = false) => {
+        const justification = isDetailView 
+            ? notification.justificativa + ' Completa' // Adiciona 'Completa' para a visualização detalhada
+            : notification.justificativa;
+
+        // Adicionando a classe 'hidden-detail' apenas para o item detalhado (inicialmente escondido)
+        const displayStyle = isDetailView ? 'style="display: none;"' : '';
+        const detailClass = isDetailView ? 'hidden-detail' : '';
+            
         return `
-            <div class="notification-item" data-id="${notification.id}" data-status="${notification.status}">
+            <div class="notification-item ${detailClass}" data-id="${notification.id}" data-status="${status}" ${displayStyle}>
                 <div class="item-details">
                     <p class="item-number">Nº ${notification.id}</p>
                     <p class="item-name">${notification.nome}</p>
                     <p class="item-date-time">${notification.data}</p>
                     <p class="item-date-time">${notification.hora}</p>
-                    <p class="item-justification">${notification.justificativa}</p>
+                    <p class="item-justification">${justification}</p>
                 </div>
-                ${!isLastItem ? `
-                <div class="item-actions">
-                    <button class="btn-action btn-approve" data-action="aprovar">Aprovar</button>
-                    <button class="btn-action btn-reject" data-action="reprovar">Reprovar</button>
-                    <button class="btn-link" data-action="detalhes">Ver detalhes</button>
-                </div>
-                ` : `
-                <div class="item-actions bottom-actions">
-                    <button class="btn-action btn-approve" data-action="aprovar">Aprovar</button>
-                    <button class="btn-action btn-reject" data-action="reprovar">Reprovar</button>
-                    <button class="btn-link btn-back" data-action="voltar">Voltar</button>
-                </div>
-                `}
-            </div>
+                ${renderActionArea(status, isDetailView)} </div>
         `;
     };
 
-    // Função para renderizar a lista de notificações
+
+    /**
+     * Renderiza o conteúdo da lista para o status selecionado.
+     */
     const renderNotifications = (status) => {
-        let htmlContent = `<div class="status-tabs">
-            <span>Status:</span>
-            <button class="tab-button ${status === 'Aprovadas' ? 'active' : ''}" data-status="Aprovadas">Aprovadas</button>
-            <button class="tab-button ${status === 'Reprovadas' ? 'active' : ''}" data-status="Reprovadas">Reprovadas</button>
-            <button class="tab-button ${status === 'Pendentes' ? 'active' : ''}" data-status="Pendentes">Pendentes</button>
-        </div>`;
-        
         const list = mockNotifications[status] || [];
+        let htmlContent = '';
         
-        // Renderiza os itens baseados no mock data
         list.forEach(item => {
-             // Adiciona a propriedade status no objeto para uso na função de criação de HTML
-            item.status = status; 
-            htmlContent += createNotificationHTML(item);
+            htmlContent += createNotificationHTML(item, status);
         });
 
-        // Adiciona um item extra para simular o terceiro item do wireframe (Pendentes)
-        if (status === 'Pendentes') {
-            htmlContent += createNotificationHTML({ 
-                id: 421, nome: "Nome Solicitação", data: "12/12/25", hora: "18:00 as 19:00", justificativa: "Justificativa Completa", status: "Pendentes"
-            });
+        // Adiciona um item de visualização detalhada para a aba Pendentes (inicialmente escondido)
+        if (status === 'pendentes' && list.length > 0) {
+             htmlContent += createNotificationHTML(list[0], status, true);
         }
-        
-        notificationsListContainer.innerHTML = htmlContent;
 
-        // Re-atribui o listener para as abas após a re-renderização
-        attachTabListeners();
-        // Re-atribui o listener para os botões de ação após a re-renderização
-        attachActionListeners(); 
+        notificationsContent.innerHTML = htmlContent;
     };
 
-    // --- 1. FUNCIONALIDADE DAS ABAS DE STATUS ---
 
-    const attachTabListeners = () => {
-        // Seleciona os botões novamente após a re-renderização
-        document.querySelectorAll('.tab-button').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const newStatus = e.target.getAttribute('data-status');
-                if (newStatus) {
-                    // Renderiza o novo conjunto de dados
-                    renderNotifications(newStatus); 
-                }
-            });
+    // --- 3. LÓGICA DE INTERAÇÃO (ABAS E AÇÕES) ---
+
+    // 3.1 Funcionalidade das Abas
+    tabButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const status = e.target.getAttribute('data-status');
+            
+            // Ativa visualmente a aba
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            renderNotifications(status); 
         });
-    };
+    });
 
-    // --- 2. AÇÕES DE BOTÃO (Aprovar, Reprovar, Detalhes) ---
-
-    const attachActionListeners = () => {
-        document.querySelectorAll('.notification-item').forEach(item => {
-            item.querySelectorAll('button').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const action = e.target.getAttribute('data-action');
-                    const id = item.getAttribute('data-id');
-                    const status = item.getAttribute('data-status');
-
-                    // Simula a ação
-                    if (action === 'aprovar') {
-                        alert(`Aprovar Notificação #${id}. Necessário Backend.`);
-                        // Em um projeto real: Enviar requisição para aprovar.
-                        // Aqui: Simplesmente removemos o item da lista (visualmente)
-                        item.remove();
-                        // Você pode adicionar a lógica para re-renderizar a aba 'Aprovadas'
-                    } else if (action === 'reprovar') {
-                        alert(`Reprovar Notificação #${id}. Necessário Backend.`);
-                        item.remove();
-                        // Você pode adicionar a lógica para re-renderizar a aba 'Reprovadas'
-                    } else if (action === 'detalhes') {
-                        alert(`Mostrando detalhes da Notificação #${id}. Status atual: ${status}`);
-                    } else if (action === 'voltar') {
-                        alert('Voltando da visualização completa.');
-                        // Em um projeto real: Recarregar a lista PENDENTES
-                    }
-                });
-            });
-        });
-    };
-
-    // --- 3. FUNCIONALIDADE DO CALENDÁRIO ---
-
-    // Define o dia selecionado (14) no carregamento
-    let selectedDay = document.querySelector('.selected-day');
-    if (selectedDay) {
-         // Simula a URL de pesquisa ao clicar em um dia
-        console.log(`Dia ${selectedDay.textContent} selecionado. URL: /notificacoes?data=14-10-2025`);
-    }
-
-    calendarDatesTable.addEventListener('click', (e) => {
+    // 3.2 Funcionalidade dos Botões (Aprovar, Reprovar, Detalhes, Voltar)
+    notificationsContent.addEventListener('click', (e) => {
         const target = e.target;
+        const action = target.getAttribute('data-action');
+        const item = target.closest('.notification-item');
         
-        // Verifica se o clique foi em um dia válido (não cabeçalho e não dias cinzas)
-        if (target.tagName === 'TD' && !target.classList.contains('prev-month') && !target.classList.contains('next-month')) {
-            
-            // Remove a seleção anterior
-            if (selectedDay) {
-                selectedDay.classList.remove('selected-day');
+        if (!action) return; // Não é um botão de ação
+
+        const isPendingList = item && item.getAttribute('data-status') === 'pendentes';
+        // Seleciona todos os itens da lista normal e o item detalhado (escondido)
+        const normalItems = notificationsContent.querySelectorAll('.notification-item:not(.hidden-detail)');
+        const detailItem = notificationsContent.querySelector('.notification-item.hidden-detail');
+
+        if (action === 'aprovar' || action === 'reprovar') {
+            if (isPendingList) {
+                alert(`${action === 'aprovar' ? 'Aprovação' : 'Reprovação'} simulada para ${item.querySelector('.item-name').textContent}.`);
+                item.remove(); // Remove o item da lista (e se for o item detalhe, remove ele também)
+
+                // Após remover, verifica se o item removido era o detalhe e se o item original ainda existe.
+                if (item.classList.contains('hidden-detail')) {
+                    // Se removeu o detalhe, volta para a lista
+                    normalItems.forEach(n => n.style.display = 'flex');
+                }
             }
-
-            // Adiciona a nova seleção
-            target.classList.add('selected-day');
-            selectedDay = target;
-
-            // Simula o clique
-            const day = target.textContent;
-            alert(`Dia ${day} de Outubro de 2025 selecionado! Carregando notificações...`);
+        } else if (action === 'detalhes') {
+            alert('Simulando visualização de Detalhes. Pressione "Voltar" para retornar.');
             
-            // Aqui você chamaria uma função para renderizar as notificações daquele dia
-            // Ex: loadNotificationsByDate(day, '10', '2025');
+            // Esconde todos os itens normais
+            normalItems.forEach(n => n.style.display = 'none');
+            // Mostra o item detalhado (se existir)
+            if (detailItem) detailItem.style.display = 'flex'; 
+            
+        } else if (action === 'voltar') {
+            alert('Voltando para a lista normal.');
+            // Mostra todos os itens normais
+            normalItems.forEach(n => n.style.display = 'flex');
+            // Esconde o item detalhado
+            if (detailItem) detailItem.style.display = 'none';
         }
     });
 
     // --- INICIALIZAÇÃO ---
-
-    // Renderiza o estado inicial (Pendentes, conforme o wireframe)
-    renderNotifications('Pendentes'); 
+    // Ativa a aba pendentes e renderiza o conteúdo inicial
+    document.querySelector('.tab-button[data-status="pendentes"]').classList.add('active');
+    renderNotifications('pendentes'); 
 });
 const toggleButton = document.getElementById('toggle-sidebar');
 const sidebar = document.getElementById('sidebar');
@@ -184,4 +179,3 @@ function logout() {
 }
 
 document.getElementById('logout').addEventListener('click', logout);
-// script.js
