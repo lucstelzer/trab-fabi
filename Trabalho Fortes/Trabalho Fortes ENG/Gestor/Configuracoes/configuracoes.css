@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+    --text-color: #333;
+    --border-color: #ccc;
+    --button-bg-primary: #007bff;
+    --button-text-primary: #fff;
+    --button-bg-secondary: #e0e0e0;
+    --button-text-secondary: #333;
+    --background-color: #fff;
+    --toggle-active: #28a745; /* Verde para toggle ativo */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha no topo */
+    min-height: 100vh;
+    color: var(--text-color);
+    margin-left: 17rem;
+    padding: 2rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px; /* Largura máxima para a área de conteúdo */
+    background-color: var(--background-color);
+}
+.section-group {
+    margin-bottom: 30px;
+}
+
+.section-group h3 {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-color); /* Linha do título da seção */
+    padding-bottom: 5px;
+}
+
+.section-group h4 {
+    font-size: 1em;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+/* --- Toggles (Chaves) --- */
+.toggle-setting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.toggle-setting label {
+    font-size: 1em;
+}
+
+/* O Switch em si (inspirado no w3schools) */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 48px; /* Ajuste para ser um pouco menor */
+    height: 28px; /* Ajuste para ser um pouco menor */
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px; /* Ajuste */
+    width: 20px;  /* Ajuste */
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--toggle-active);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--toggle-active);
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px); /* Ajuste */
+}
+
+.slider.round {
+    border-radius: 28px; /* Ajuste */
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* --- Dropdown (Select) --- */
+.dropdown-setting {
+    margin-top: 20px;
+}
+
+.dropdown-setting label {
+    display: block;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+select#idioma {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1em;
+    background-color: var(--background-color);
+    appearance: none; /* Remove o estilo padrão do SO */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333333" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18px" height="18px"><path d="M7 10l5 5 5-5z"/></svg>'); /* Ícone de seta */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    cursor: pointer;
+}
+
+select#idioma:focus {
+    border-color: var(--button-bg-primary);
+    outline: none;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: var(--sidebar-width);
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.sidebar-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.sidebar-menu {
+    list-style: none;
+}
+
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: var(--color-text-dark);
+    border-radius: 8px;
+    transition: background-color 0.2s;
+    margin-bottom: 10px; 
+}
+
+.sidebar-menu a i {
+    margin-right: 12px;
+    width: 20px;
+}
+
+.sidebar-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.hamburger-btn {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 12px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1001;
+}
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .sidebar.active { 
+        transform: translateX(0);
+    }
+    
+    .hamburger-btn {
+        display: block;
+    }
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    body{
+        margin-left: 1rem;
+        margin-top: 5rem;
+    }
+}
