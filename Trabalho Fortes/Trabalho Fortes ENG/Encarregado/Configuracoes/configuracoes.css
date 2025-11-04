@@ -8,7 +8,7 @@
     --button-bg-secondary: #e0e0e0;
     --button-text-secondary: #333;
     --background-color: #fff;
-    --toggle-active: #28a745; /* Verde para toggle ativo */
+    --toggle-active: #28a745; 
 }
 
 * {
@@ -22,7 +22,7 @@ body {
     background-color: var(--background-color);
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Alinha no topo */
+    align-items: flex-start; 
     min-height: 100vh;
     color: var(--text-color);
     margin-left: 17rem;
@@ -31,7 +31,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 600px; /* Largura máxima para a área de conteúdo */
+    max-width: 600px; 
     background-color: var(--background-color);
 }
 .section-group {
@@ -42,7 +42,7 @@ body {
     font-size: 1.1em;
     font-weight: 600;
     margin-bottom: 10px;
-    border-bottom: 1px solid var(--border-color); /* Linha do título da seção */
+    border-bottom: 1px solid var(--border-color); 
     padding-bottom: 5px;
 }
 
@@ -52,7 +52,7 @@ body {
     margin-top: 20px;
     margin-bottom: 10px;
 }
-/* --- Toggles (Chaves) --- */
+
 .toggle-setting {
     display: flex;
     justify-content: space-between;
@@ -64,12 +64,12 @@ body {
     font-size: 1em;
 }
 
-/* O Switch em si (inspirado no w3schools) */
+
 .switch {
     position: relative;
     display: inline-block;
-    width: 48px; /* Ajuste para ser um pouco menor */
-    height: 28px; /* Ajuste para ser um pouco menor */
+    width: 48px; 
+    height: 28px; 
 }
 
 .switch input {
@@ -92,8 +92,8 @@ body {
 .slider:before {
     position: absolute;
     content: "";
-    height: 20px; /* Ajuste */
-    width: 20px;  /* Ajuste */
+    height: 20px; 
+    width: 20px;  
     left: 4px;
     bottom: 4px;
     background-color: white;
@@ -109,18 +109,18 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-    transform: translateX(20px); /* Ajuste */
+    transform: translateX(20px); 
 }
 
 .slider.round {
-    border-radius: 28px; /* Ajuste */
+    border-radius: 28px; 
 }
 
 .slider.round:before {
     border-radius: 50%;
 }
 
-/* --- Dropdown (Select) --- */
+
 .dropdown-setting {
     margin-top: 20px;
 }

@@ -1,10 +1,8 @@
-// script.js
 
 document.addEventListener('DOMContentLoaded', () => {
     const tabButtons = document.querySelectorAll('.tab-button');
     const notificationsContent = document.getElementById('notifications-content');
 
-    // --- MOCK DATA (Dados Simulados) ---
     const mockNotifications = {
         'pendentes': [
             { id: 421, nome: "Nome Solicitação", data: "12/12/25", hora: "18:00 as 19:00", justificativa: "Justificativa de Pedro S." },
@@ -19,15 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
     };
 
-    // --- FUNÇÕES DE RENDERIZAÇÃO ---
 
-    /**
-     * Gera o HTML da área de ações/status baseada no status e na visualização.
-     */
     const renderActionArea = (status, isDetailView = false) => {
         if (status === 'pendentes') {
             if (isDetailView) {
-                // Último item do wireframe: botões de ação + Voltar
                 return `
                     <div class="item-actions detail-actions">
                         <button class="btn-action btn-approve" data-action="aprovar">Aprovar</button>

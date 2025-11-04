@@ -28,23 +28,6 @@ body {
     min-height: 100vh;
 }
 
-.sidebar {
-    width: 200px;
-    background-color: #fff;
-    border-right: 1px solid var(--border-color);
-    padding: 15px 0;
-    flex-shrink: 0;
-}
-.logo-area {
-    padding: 10px;
-    font-weight: bold;
-    text-align: center;
-}
-.main-menu {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-}
 
 .main-content {
     flex-grow: 1;
@@ -212,17 +195,33 @@ body {
     position: fixed;
     top: 15px;
     left: 15px;
+    width: 42px;
+    height: 42px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 10px 12px;
+    padding: 10px;
     font-size: 1.2rem;
     cursor: pointer;
     z-index: 1001;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger-btn i {
+    font-size: 1.2rem;
+    color: #333; /* <-- CORREÇÃO 1: Cor definida */
+    line-height: 1;
+}
+
+.hamburger-btn i {
+    display: block;
+    width: 20px;
+    text-align: center;
 }
 @media (max-width: 768px) {
     .hamburger-btn {
-        display: block;
+        display: flex; /* <-- CORREÇÃO 2: Alinhamento central */
     }
     .sidebar {
         transform: translateX(-100%);
@@ -233,6 +232,10 @@ body {
     }
     .sidebar.open {
         transform: translateX(0);
+    }
+    body{
+        padding-left: 1rem;
+        margin:1rem;
     }
 }
 .status-tabs {
