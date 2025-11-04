@@ -78,9 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 
-    /**
-     * Renderiza o conteúdo da lista para o status selecionado.
-     */
+    
     const renderNotifications = (status) => {
         const list = mockNotifications[status] || [];
         let htmlContent = '';
@@ -89,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
             htmlContent += createNotificationHTML(item, status);
         });
 
-        // Adiciona um item de visualização detalhada para a aba Pendentes (inicialmente escondido)
         if (status === 'pendentes' && list.length > 0) {
              htmlContent += createNotificationHTML(list[0], status, true);
         }
@@ -98,14 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 
-    // --- 3. LÓGICA DE INTERAÇÃO (ABAS E AÇÕES) ---
-
-    // 3.1 Funcionalidade das Abas
     tabButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             const status = e.target.getAttribute('data-status');
             
-            // Ativa visualmente a aba
             tabButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
 
@@ -113,49 +106,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3.2 Funcionalidade dos Botões (Aprovar, Reprovar, Detalhes, Voltar)
     notificationsContent.addEventListener('click', (e) => {
         const target = e.target;
         const action = target.getAttribute('data-action');
         const item = target.closest('.notification-item');
         
-        if (!action) return; // Não é um botão de ação
+        if (!action) return; 
 
         const isPendingList = item && item.getAttribute('data-status') === 'pendentes';
-        // Seleciona todos os itens da lista normal e o item detalhado (escondido)
         const normalItems = notificationsContent.querySelectorAll('.notification-item:not(.hidden-detail)');
         const detailItem = notificationsContent.querySelector('.notification-item.hidden-detail');
 
         if (action === 'aprovar' || action === 'reprovar') {
             if (isPendingList) {
                 alert(`${action === 'aprovar' ? 'Aprovação' : 'Reprovação'} simulada para ${item.querySelector('.item-name').textContent}.`);
-                item.remove(); // Remove o item da lista (e se for o item detalhe, remove ele também)
+                item.remove(); 
 
-                // Após remover, verifica se o item removido era o detalhe e se o item original ainda existe.
                 if (item.classList.contains('hidden-detail')) {
-                    // Se removeu o detalhe, volta para a lista
                     normalItems.forEach(n => n.style.display = 'flex');
                 }
             }
         } else if (action === 'detalhes') {
             alert('Simulando visualização de Detalhes. Pressione "Voltar" para retornar.');
             
-            // Esconde todos os itens normais
             normalItems.forEach(n => n.style.display = 'none');
-            // Mostra o item detalhado (se existir)
             if (detailItem) detailItem.style.display = 'flex'; 
             
         } else if (action === 'voltar') {
             alert('Voltando para a lista normal.');
-            // Mostra todos os itens normais
             normalItems.forEach(n => n.style.display = 'flex');
-            // Esconde o item detalhado
             if (detailItem) detailItem.style.display = 'none';
         }
     });
 
-    // --- INICIALIZAÇÃO ---
-    // Ativa a aba pendentes e renderiza o conteúdo inicial
     document.querySelector('.tab-button[data-status="pendentes"]').classList.add('active');
     renderNotifications('pendentes'); 
 });

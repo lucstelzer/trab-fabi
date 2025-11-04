@@ -210,7 +210,7 @@ body {
 
 .hamburger-btn i {
     font-size: 1.2rem;
-    color: #333; /* <-- CORREÇÃO 1: Cor definida */
+    color: #333; 
     line-height: 1;
 }
 
@@ -221,7 +221,7 @@ body {
 }
 @media (max-width: 768px) {
     .hamburger-btn {
-        display: flex; /* <-- CORREÇÃO 2: Alinhamento central */
+        display: flex; 
     }
     .sidebar {
         transform: translateX(-100%);

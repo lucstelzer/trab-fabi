@@ -65,10 +65,9 @@ body {
 .sidebar-menu a:hover {
     background-color: #f0f0f0;
 }
-/* Estilo para o link ativo da sidebar */
 .sidebar-menu a.active {
     background-color: #e9ecef;
-    color: var(--color-text); /* <-- MUDANÇA: Retirado azul */
+    color: var(--color-text); 
     font-weight: 600;
 }
 .hamburger-btn {
@@ -91,12 +90,11 @@ body {
     transition: margin-left 0.3s ease-in-out;
 }
 
-/* Cabeçalho do Conteúdo */
 .main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px; /* Reduzido para aproximar os widgets */
+    margin-bottom: 20px; 
     background-color: var(--color-surface);
     padding: 20px;
     border-radius: var(--radius);
@@ -120,15 +118,14 @@ body {
 }
 .date-display i {
     font-size: 1.2rem;
-    color: var(--color-muted); /* <-- MUDANÇA: Retirado azul */
+    color: var(--color-muted);
 }
 
-/* Estilos para os Widgets de Sumário (baseado no dashboard_gestor.css) */
 .dashboard-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    margin-bottom: 20px; /* Espaço antes do próximo bloco */
+    margin-bottom: 20px; 
 }
 .widget {
     background-color: var(--color-surface);
@@ -147,10 +144,9 @@ body {
 .widget .summary-value {
     font-size: 1.75rem;
     font-weight: bold;
-    color: var(--color-text); /* <-- MUDANÇA: Retirado azul */
+    color: var(--color-text); 
 }
 
-/* Caixa Principal do Gráfico */
 .chart-box {
     background-color: var(--color-surface);
     border: 1px solid #ddd;
@@ -165,14 +161,12 @@ body {
     margin-bottom: 20px;
 }
 
-/* Container dos relatórios */
 #daily-reports-container {
-    max-height: 450px; /* Limita a altura e adiciona scroll */
-    overflow-y: auto; /* Adiciona scroll vertical */
-    padding-right: 10px; /* Espaço para a barra de scroll */
+    max-height: 450px; 
+    overflow-y: auto; 
+    padding-right: 10px; 
 }
 
-/* Bloco de um único setor */
 .daily-report {
     border: 1px solid #eee;
     border-radius: 6px;
@@ -183,9 +177,9 @@ body {
     margin-bottom: 0;
 }
 
-.report-title { /* Nome da classe atualizado */
+.report-title { 
     font-size: 1.1rem;
-    color: var(--color-text); /* <-- MUDANÇA: Retirado azul */
+    color: var(--color-text); 
     margin-bottom: 15px;
     font-weight: 600;
 }
@@ -215,16 +209,16 @@ body {
     transition: width 0.3s ease;
 }
 .bar.worked {
-    background-color: #a9a9a9; /* Cinza (Horas Aprovadas) */
+    background-color: #a9a9a9; 
 }
 .bar.extra {
-    background-color: #d3d3d3; /* Cinza claro (Horas Feitas) */
+    background-color: #d3d3d3; /
 }
 
-/* Conteúdo Inferior (Legenda) */
+
 .bottom-content {
     display: flex;
-    justify-content: flex-start; /* Alinhado à esquerda */
+    justify-content: flex-start; 
     align-items: flex-start;
     margin-top: 20px;
     gap: 20px;
@@ -235,7 +229,7 @@ body {
     border-radius: var(--radius);
     padding: 20px;
     box-shadow: var(--shadow-sm);
-    flex-basis: 400px; /* Largura da legenda */
+    flex-basis: 400px; 
 }
 .legend-item {
     display: flex;
@@ -291,7 +285,6 @@ body {
         justify-content: space-between;
     }
 
-    /* Widgets responsivos */
     .dashboard-grid.top-widgets {
         flex-direction: column;
     }
