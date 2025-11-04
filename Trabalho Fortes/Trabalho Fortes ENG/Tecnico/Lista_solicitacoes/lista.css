@@ -91,6 +91,10 @@ body {
     .sidebar.open {
         transform: translateX(0);
     }
+    body{
+        margin-top: 5rem !important;
+        margin: 1rem;
+    }
 }
 .card.table-container {
     overflow-x: auto;

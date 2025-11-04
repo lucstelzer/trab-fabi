@@ -92,7 +92,8 @@ body {
         transform: translateX(0);
     }
     body{
-        padding: 1rem;
+        margin-top: 3rem !important;
+        margin: 1rem;
     }
 }
 form {
