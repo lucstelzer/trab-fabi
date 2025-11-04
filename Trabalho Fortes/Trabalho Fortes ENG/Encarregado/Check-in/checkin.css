@@ -1,13 +1,11 @@
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f2f5;
-    margin-left: 17rem;
-    margin-top: 3rem;
+    padding: 2rem;
+    padding-left: calc(250px + 2rem);
 }
 .sidebar {
     position: fixed;
@@ -69,7 +67,7 @@ body {
 
 .hamburger-btn i {
     font-size: 1.2rem;
-    color: var(--color-text);
+    color: #333; /* <-- CORREÇÃO 1: Cor definida */
     line-height: 1;
 }
 
@@ -80,7 +78,7 @@ body {
 }
 @media (max-width: 768px) {
     .hamburger-btn {
-        display: block;
+        display: flex; /* <-- CORREÇÃO 2: Alinhamento central */
     }
     .sidebar {
         transform: translateX(-100%);

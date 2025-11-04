@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Relatórios do Gestor</title>
+    <link rel="stylesheet" href="relatorio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <button class="hamburger-btn" id="toggle-sidebar">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="/Trabalho Fortes/Trabalho Fortes ENG/Gestor/Dashboard_gestor/dashboard_gestor.html">
+                <img src="/Trabalho Fortes/Fortes engenharia.jpeg" alt="Logo da Empresa" class="logo">
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Gestor/Perfil/perfil.html"><i class="fa-solid fa-user"></i> Perfil</a></li>
+            <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Gestor/Check-in/checkin.html"><i class="fa-solid fa-check"></i> Check-in</a></li>
+            <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Gestor/Aprovar/reprovar/index.html"><i class="fa-solid fa-list-ul"></i>Solicitações</a></li>
+            <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Gestor/Relatorio/relatorio.html" class="active"><i class="fa-solid fa-chart-bar"></i> Relatórios</a></li>
+            <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Gestor/Notificacoes/index.html"><i class="fa-solid fa-bell"></i> Notificações</a></li>
+            <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Gestor/Perguntas/index.html"><i class="fa-solid fa-question-circle"></i> Perguntas</a></li>
+            <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Gestor/Configuracoes/configuracoes.html"><i class="fa-solid fa-cog"></i> Configurações</a></li>
+            <li id="logout"><a href="#"><i class="fa-solid fa-sign-out-alt"></i>Deslogar</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        
+        <header class="main-header">
+            <h1>Relatórios Gerenciais</h1>
+            <div class="date-display">
+                <span>03/11/2025</span>
+                <i class="fa-solid fa-calendar-days"></i>
+            </div>
+        </header>
+
+        <section class="dashboard-grid top-widgets">
+            <div class="widget">
+                <h4>Total Horas Aprovadas (Mês)</h4>
+                <p class="summary-value">1.240 hrs</p>
+            </div>
+            <div class="widget">
+                <h4>Custo Estimado (Mês)</h4>
+                <p class="summary-value">R$ 45.880,00</p>
+            </div>
+            <div class="widget">
+                <h4>Taxa de Conclusão Geral</h4>
+                <p class="summary-value">85%</p>
+            </div>
+        </section>
+
+        <section class="chart-box">
+            <h3>Desempenho por Setor (Últimos 30 dias)</h3>
+            
+            <div id="daily-reports-container">
+                
+                <div class="daily-report">
+                    <h4 class="report-title">Setor: Elétrica (Encarregado: João)</h4>
+                    <div class="report-bar-group">
+                        <div class="bar-label"><span>Horas aprovadas</span><span>320h</span></div>
+                        <div class="bar-container"><div class="bar worked" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="report-bar-group">
+                        <div class="bar-label"><span>Horas feitas</span><span>280h</span></div>
+                        <div class="bar-container"><div class="bar extra" style="width: 70%;"></div></div>
+                    </div>
+                </div>
+                <div class="daily-report">
+                    <h4 class="report-title">Setor: Mecânica (Encarregado: Maria)</h4>
+                    <div class="report-bar-group">
+                        <div class="bar-label"><span>Horas aprovadas</span><span>280h</span></div>
+                        <div class="bar-container"><div class="bar worked" style="width: 70%;"></div></div>
+                    </div>
+                    <div class="report-bar-group">
+                        <div class="bar-label"><span>Horas feitas</span><span>270h</span></div>
+                        <div class="bar-container"><div class="bar extra" style="width: 68%;"></div></div>
+                    </div>
+                </div>
+                <div class="daily-report">
+                    <h4 class="report-title">Setor: Civil (Encarregado: Pedro)</h4>
+                    <div class="report-bar-group">
+                        <div class="bar-label"><span>Horas aprovadas</span><span>400h</span></div>
+                        <div class="bar-container"><div class="bar worked" style="width: 100%;"></div></div>
+                    </div>
+                    <div class="report-bar-group">
+                        <div class="bar-label"><span>Horas feitas</span><span>300h</span></div>
+                        <div class="bar-container"><div class="bar extra" style="width: 75%;"></div></div>
+                    </div>
+                </div>
+                <div class="daily-report">
+                    <h4 class="report-title">Setor: Hidráulica (Encarregado: Ana)</h4>
+                    <div class="report-bar-group">
+                        <div class="bar-label"><span>Horas aprovadas</span><span>240h</span></div>
+                        <div class="bar-container"><div class="bar worked" style="width: 60%;"></div></div>
+                    </div>
+                    <div class="report-bar-group">
+                        <div class="bar-label"><span>Horas feitas</span><span>210h</span></div>
+                        <div class="bar-container"><div class="bar extra" style="width: 52%;"></div></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="bottom-content">
+            <div class="legend">
+                <div class="legend-item">
+                    <span class="color-box worked"></span> Horas Aprovadas (Planejado)
+                </div>
+                <div class="legend-item">
+                    <span class="color-box extra"></span> Horas Feitas (Realizado)
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <script src="relatorio.js"></script>
+</body>
+</html>
