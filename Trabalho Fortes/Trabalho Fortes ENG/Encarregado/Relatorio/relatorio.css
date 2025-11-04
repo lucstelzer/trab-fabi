@@ -78,15 +78,6 @@ body {
 /* ================================== */
 
 /* Estilo para o link ativo da sidebar */
-.sidebar-menu a.active {
-    background-color: #e9e9e9;
-    font-weight: bold;
-    color: #1a73e8; 
-}
-.sidebar-menu a.active i {
-    color: #1a73e8;
-}
-
 /* Conteúdo Principal */
 .main-content {
     margin-left: 250px; 

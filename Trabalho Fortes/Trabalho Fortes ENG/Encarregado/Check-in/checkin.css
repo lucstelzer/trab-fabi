@@ -1,11 +1,13 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f2f5;
-    padding: 2rem;
-    padding-left: calc(250px + 2rem);
+    margin-left: 17rem;
+    margin-top: 3rem;
 }
 .sidebar {
     position: fixed;

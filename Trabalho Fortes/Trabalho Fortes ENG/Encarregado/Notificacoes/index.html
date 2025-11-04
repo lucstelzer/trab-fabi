@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificações</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="/Trabalho Fortes/Trabalho Fortes ENG/Encarregado/Dashboard_encarregado/dashboard_encarregado.html">
+            <img src="/Trabalho Fortes/Fortes engenharia.jpeg" alt="Logo da Empresa" class="logo">
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Encarregado/Perfil/perfil.html"><i class="fa-solid fa-user"></i> Perfil</a></li>
+            <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Encarregado/Check-in/checkin.html"><i class="fa-solid fa-check"></i> Check-in</a></li>
+            <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Encarregado/Fazer solicitacao/solicitacao.html"><i class="fa-solid fa-list-ul"></i> Fazer solicitação</a></li>
+            <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Encarregado/Relatorio/relatorio.html"><i class="fa-solid fa-chart-bar"></i> Relatórios</a></li>
+            <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Tecnico/Notificacoes/index.html"><i class="fa-solid fa-bell"></i> Notificações</a></li>
+            <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Encarregado/Perguntas/"><i class="fa-solid fa-question-circle"></i> Perguntas</a></li>
+            <li><a href="/Trabalho Fortes/Trabalho Fortes ENG/Encarregado/Configuracoes/configuracoes.html"><i class="fa-solid fa-cog"></i> Configurações</a></li>
+            <li id="logout"><a href="#"><i class="fa-solid fa-sign-out-alt"></i>Deslogar</a></li>
+        </ul>
+    </nav>
+
+    <button class="hamburger-btn" id="toggle-sidebar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="notifications-container">
+        <h1 class="header-title">Notificações</h1>
+
+        <div class="top-bar">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Pesquisar" onkeyup="filterNotifications()">
+            </div>
+
+            <div class="filter-buttons">
+                <span>Mostrar:</span>
+                <button class="filter-btn active" data-filter="todas" onclick="filterNotifications('todas')">Todas</button>
+                <button class="filter-btn" data-filter="lidas" onclick="filterNotifications('lidas')">Lidas</button>
+                <button class="filter-btn" data-filter="nao-lidas" onclick="filterNotifications('nao-lidas')">Não lidas</button>
+            </div>
+        </div>
+
+        <div id="notificationList" class="notification-list">
+            </div>
+
+    </div>
+
+    <script src="script.js"></script> </body>
+</html>

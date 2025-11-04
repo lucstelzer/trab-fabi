@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitações de horas-extras</title>
+    <title>Notificações</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="estilos.css">
-</head>
+    <link rel="stylesheet" href="style.css"> </head>
 <body>
-     <nav class="sidebar" id="sidebar">
+    <nav class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <a href="/Trabalho Fortes/Trabalho Fortes ENG/Gestor/Dashboard_gestor/dashboard_gestor.html">
             <img src="/Trabalho Fortes/Fortes engenharia.jpeg" alt="Logo da Empresa" class="logo">
@@ -25,23 +24,31 @@
             <li id="logout"><a href="#"><i class="fa-solid fa-sign-out-alt"></i>Deslogar</a></li>
         </ul>
     </nav>
-        <main class="main-content">
-            <h3>Solicitações de horas-extras:</h3>
-            <div class="content-header">
-                <div class="status-tabs">
-                    <span class="status-label">Status:</span>
-                    <button class="tab-button" data-status="aprovadas">Aprovadas</button>
-                    <button class="tab-button" data-status="reprovadas">Reprovadas</button>
-                    <button class="tab-button active" data-status="pendentes">Pendentes</button>
-                </div>
+
+    <button class="hamburger-btn" id="toggle-sidebar">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="notifications-container">
+        <h1 class="header-title">Notificações</h1>
+
+        <div class="top-bar">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Pesquisar" onkeyup="filterNotifications()">
             </div>
 
-            <div class="notifications-list" id="notifications-content">
-                </div>
-            
-            </main>
+            <div class="filter-buttons">
+                <span>Mostrar:</span>
+                <button class="filter-btn active" data-filter="todas" onclick="filterNotifications('todas')">Todas</button>
+                <button class="filter-btn" data-filter="lidas" onclick="filterNotifications('lidas')">Lidas</button>
+                <button class="filter-btn" data-filter="nao-lidas" onclick="filterNotifications('nao-lidas')">Não lidas</button>
+            </div>
+        </div>
+
+        <div id="notificationList" class="notification-list">
+            </div>
+
     </div>
 
-    <script src="script.js"></script>
-</body>
+    <script src="script.js"></script> </body>
 </html>
