@@ -8,3 +8,9 @@ if (toggleButton && sidebar) {
 } else {
     console.error("Elemento da sidebar ou botão toggle não encontrado.");
 }
+function logout() {
+    localStorage.removeItem('token');
+    window.location.href = '/Trabalho Fortes/Trabalho Fortes ENG/Login/login.html';
+}
+
+document.getElementById('logout').addEventListener('click', logout);
