@@ -146,3 +146,18 @@ button.action-link {
 button.action-link:hover{
     transform: scale(1.03);
 }
+.status-badge.completed{ 
+    background-color: #28a745;
+    border-radius: 8px;
+    padding: 5px;
+}
+.status-badge.rejected{
+    background-color: red;
+    border-radius: 8px;
+    padding: 5px;
+}
+.status-badge.approved, .status-badge.pending{
+    background: linear-gradient(90deg,#064499,#064466);
+    border-radius: 8px;
+    padding: 5px;
+}
