@@ -290,4 +290,11 @@ h1 {
     border-radius: 100%;
     border-style: none;
     cursor: pointer;
+    max-width: fit-content;
+    align-self: center;
+}
+.widget.news-item{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
