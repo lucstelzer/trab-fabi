@@ -284,3 +284,10 @@ h1 {
         width: 100%;
     }
 }
+.widget.news-item button{
+    background-color: #14488b;
+    padding: 20px;
+    border-radius: 100%;
+    border-style: none;
+    cursor: pointer;
+}
