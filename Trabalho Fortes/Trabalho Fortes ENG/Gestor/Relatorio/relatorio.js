@@ -15,6 +15,6 @@ if (logoutButton) {
         
         console.log('Usuário deslogado.');
         
-        window.location.href = '/Trabalho Fortes/Trabalho Fortes ENG/Login/login.html';
+        window.location.href = '/Trabalho Fortes/Trabalho Fortes ENG/Login/index.html';
     });
 }
